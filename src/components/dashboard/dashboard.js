@@ -1,6 +1,5 @@
-  
 import React, { Component } from 'react'
-import User from './user/user.js'
+import User from '../user/User.js'
 
 class Dashboard extends Component {
   render() {
