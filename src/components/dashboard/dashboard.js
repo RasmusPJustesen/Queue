@@ -1,11 +1,23 @@
 import React, { Component } from 'react'
-import User from '../user/User.js'
+import Player from './Player.js'
 
 class Dashboard extends Component {
   render() {
+    let isGrouped = true;
+
+    const player = isGrouped ? <Player /> : <h1>No group</h1>
+
+
     return (
       <div className="dashboard container">
-          <User />
+        <div className="row">
+          <div className="col m8">
+            {player}
+          </div>
+          <div className="col m4">
+            <h1>Options</h1>
+          </div>
+        </div>
       </div>
     )
   }
