@@ -3,8 +3,9 @@ import Player from './Player.js'
 
 class Dashboard extends Component {
   render() {
-    let isGrouped = true;
 
+    //test for dynamic page (delete if needed)
+    let isGrouped = true;
     const player = isGrouped ? <Player /> : <h1>No group</h1>
 
 
