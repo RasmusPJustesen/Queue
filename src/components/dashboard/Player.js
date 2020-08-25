@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Player = (currentSong) => {
+const Player = () => {
   return (
     <div className="card blue-grey darken-1">
       <div className="card-image">
@@ -13,7 +13,7 @@ const Player = (currentSong) => {
         <h4>Now playing:<br />Gates of Babylon</h4> 
         <p>By Volbeat</p>
       </div>
-      <div className="card-action">
+      <div className="card-action"> 
         <a href="#">Play/pause</a>
         <a href="#">Skip</a>
       </div>
