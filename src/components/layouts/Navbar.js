@@ -1,15 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import SignedInLinks from './SignedInLinks'
+import SignedOutLinks from './SignedOutLinks'
 
 const Navbar = () => {
   return (
-    <div className="nav-wrapper">
-      <a href="#" className="brand-logo">Queue</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="#">item1</a></li>
-        <li><a href="#">item2</a></li>
-        <li><a href="#">item3</a></li>
-      </ul>
-    </div>
+    <nav className="nav-wrapper grey darken-2">
+      <div className="container">
+        <Link to="/" className="brand-logo">Queue</Link>
+        <SignedInLinks />
+        <SignedOutLinks />
+      </div>
+    </nav>
   ) 
 }
 
