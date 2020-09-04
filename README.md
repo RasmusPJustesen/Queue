@@ -1,4 +1,9 @@
 # Queue
+## Technologies
+* React
+* Redux
+* Firebase
+* CSS Lib (Materialize/Bootstrap/???)
 ## Features:
 ### Part 1
 * Login/logout (Auth)
