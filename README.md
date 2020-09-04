@@ -10,7 +10,7 @@
 * Login/logout (Auth)
 * Create room
 * Invite other user to room
-* Build good looking UI
+* Build good looking UI (Mobile version is very important)
 
 ### Part 2
 * Connect account to spotify account (DONT USE SPOTIFY AS THE LOGIN THOUGH!)
