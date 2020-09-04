@@ -4,6 +4,7 @@
 * Redux
 * Firebase
 * CSS Lib (Materialize/Bootstrap/???)
+* Landing page in Wordpress?
 ## Features:
 ### Part 1
 * Login/logout (Auth)
