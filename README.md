@@ -3,16 +3,18 @@
 * React
 * Redux
 * Firebase
-* CSS Lib (Materialize/Bootstrap/???)
-* Landing page in Wordpress?
-## Features:
-### Part 1
-* Login/logout (Auth)
-* Create room
-* Invite other user to room
+* Materialize
+* Landing page in Wordpress
+* backend (laraval or node)
+
+## Features: 
+### Part 1 (minium req for deploy)
+* Login/logout (firebase auth)
+* Create a room
+* Invite other users to room
 * Build good looking UI (Mobile version is very important)
 
-### Part 2
+### Part 2 (minium req for deploy)
 * Connect account to spotify account (DONT USE SPOTIFY AS THE LOGIN THOUGH!)
 * Play music in room (from spotify)
 * Add songs to queue (playlist)
@@ -23,3 +25,5 @@
 ### Part 3 (optional)
 * Allow "admin" user of room to give permissions to other users
 * Connect account to other music playforms (youtube music, itunes, etc.)
+* Be able to save rooms w/ user list and open them again (+ reinvite other users)
+* backend REST api for data share
