@@ -2,7 +2,7 @@ import React from 'react'
 
 const Options = () => {
   return (
-    <div className="card blue-grey darken-1">
+    <div className="card deep-orange accent-2">
       <div className="card-content white-text">
         <span className="card-title">Options</span>
         <p>List of options</p>

@@ -9,7 +9,7 @@ import Profile from './components/user/Profile.js';
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className="App blue-grey darken-1">
         <Navbar />
         <Switch>
           <Route exact path='/'component={Dashboard} />
