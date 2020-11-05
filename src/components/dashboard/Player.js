@@ -2,7 +2,7 @@ import React from 'react'
 
 const Player = () => {
   return (
-    <div className="card red accent-2"> 
+    <div className="card blue darken-1"> 
       <div className="card-image">
         <img src="images/volbeat.jpg" alt=""/>
         <span className="card-title">
