@@ -1,21 +1,29 @@
-Features:
+# Queue
+## Technologies
+* React
+* Redux
+* Firebase
+* Materialize
+* Landing page in Wordpress
+* backend (laraval or node)
 
-Create an account (firebase)
-Connect you your own spotify account
+## Features: 
+### Part 1 (minium req for deploy)
+* Login/logout (firebase auth)
+* Create a room
+* Invite other users to room
+* Build good looking UI (Mobile version is very important)
 
-Create a playlist(delete or keep when shutdown of app)
-Add songs to playlist
+### Part 2 (minium req for deploy)
+* Connect account to spotify account (DONT USE SPOTIFY AS THE LOGIN THOUGH!)
+* Play music in room (from spotify)
+* Add songs to queue (playlist)
+* Allow other users to add to playlist
+* Prevent others from clicking "next song"
+* Prevent others from removing songs (except their own)
 
-Invite other Queue users to playlist (create a room)
-Remove users from playlist
-
-Only owner of room can skip songs
-guest users can add songs to playlist
-
-Display list of users invited to playlist
-
-
-
-
-optional features:
-give permission to users to skip songs/remove songs/invite other users
+### Part 3 (optional)
+* Allow "admin" user of room to give permissions to other users
+* Connect account to other music playforms (youtube music, itunes, etc.)
+* Be able to save rooms w/ user list and open them again (+ reinvite other users)
+* backend REST api for data share
