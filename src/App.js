@@ -1,10 +1,10 @@
 import React from 'react';
-import Dashboard from './components/dashboard/Dashboard.js';
+import Dashboard from './components/dashboard/Dashboard';
 import Navbar from './components/layouts/Navbar';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
-import Profile from './components/user/Profile.js';
+import Profile from './components/user/Profile'; 
 
 function App() {
   return (
