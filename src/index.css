@@ -14,14 +14,6 @@ code {
     monospace;
 }
 
-.dashboard {
-  margin-top: 50px;
-}
-
-.bold {
-  font-weight: bold;
-}
-
 .playlist-list li span {
   font-size: 0.5em;
   line-height: 18px;
