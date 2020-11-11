@@ -2,7 +2,7 @@ import React from 'react'
 
 const Player = () => {
   return (
-    <div className="card blue darken-1"> 
+    <div className="card deep-orange accent-2"> 
       <div className="card-image">
         <img src="images/volbeat.jpg" alt=""/>
         <span className="card-title">
@@ -26,8 +26,8 @@ const Player = () => {
         </ol>
       </div>
       <div className="card-action"> 
-        <a href="#">Play/pause</a>
-        <a href="#">Skip</a>
+        <button className="btn deep-orange accent-3">Play/pause</button>
+        <button className="btn deep-orange accent-3 ml-2">Skip</button>
       </div>
     </div>
   ) 
