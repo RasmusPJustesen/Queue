@@ -15,8 +15,8 @@ const Options = () => {
         </ul>
       </div>
       <div className="card-action">
-        <a href="#">Action1</a>
-        <a href="#">Action2</a> 
+        <button className="btn deep-orange accent-4">Action1</button>
+        <button className="btn deep-orange accent-4 ml-1">Action2</button> 
       </div>
     </div>
   ) 
