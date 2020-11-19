@@ -11,6 +11,10 @@ body {
   color: white;
 }
 
+.App {
+  min-height: 100vh;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -21,4 +25,37 @@ code {
   line-height: 18px;
   width: 15px !important;
   height: 15px !important;
+}
+
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+  background-color: white;
+ 
+}
+
+.input-field>label {
+  color: black;
+}
+
+[type="checkbox"]+span:not(.lever):before, [type="checkbox"]:not(.filled-in)+span:not(.lever):after {
+  border: 2px solid white;
+}
+
+[type="checkbox"]:checked+span:not(.lever):before {
+  border-right: 2px solid #ff5722 !important;
+  border-bottom: 2px solid #ff5722 !important;
+}
+
+.login {
+  width: 600px;
+  margin-top: 180px;
+  color: white !important;
+}
+
+.login .btn-large {
+  width: 250px;
+}
+
+.login nav .brand-logo.center {
+  top: 50%;
+  font-size:60px;
 }
