@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Options = () => {
+const AllRooms = () => {
   return (
     <div className="card deep-orange accent-2">
       <div className="card-content white-text">
@@ -22,4 +22,4 @@ const Options = () => {
   ) 
 }
 
-export default Options
+export default AllRooms

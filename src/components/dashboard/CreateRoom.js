@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Player = () => {
+const CreateRoom = () => {
   return (
     <div className="card deep-orange accent-2"> 
       <div className="card-image">
@@ -33,4 +33,4 @@ const Player = () => {
   ) 
 }
 
-export default Player
+export default CreateRoom

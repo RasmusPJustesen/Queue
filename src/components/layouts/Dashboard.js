@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Player from './Player.js'
-import Options from './Options.js'
+import CreateRoom from '../dashboard/CreateRoom.js'
+import AllRooms from '../dashboard/AllRooms.js'
 
 class Dashboard extends Component {
   render() {
@@ -8,10 +8,10 @@ class Dashboard extends Component {
       <div className="dashboard container">
         <div className="row">
           <div className="col m4">
-            <Player /> 
+            <CreateRoom /> 
           </div>
           <div className="col m4 offset-m2"> 
-            <Options />
+            <AllRooms />
           </div>
         </div>
       </div>
