@@ -85,3 +85,26 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 .singleroom .big {
   font-size: 1.8em;
 }
+
+.user .card {
+  box-shadow: 0 19px 23px rgba(0,0,0,0.5);
+}
+
+.user .card-content {
+  padding: 0;
+}
+
+.user .card-action {
+  border: 0;
+  padding: 8px 5px;
+  text-align: center;
+}
+
+.user .col {
+  padding: 0;
+  margin: 0 10px;
+}
+
+.user .user-song-author {
+  font-size: 0.8em;
+}
