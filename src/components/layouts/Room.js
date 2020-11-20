@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Songs from './../room/Songs';
+import Songs from '../../components/room/Songs'; 
 import CurrentlyPlaying from '../room/CurrentlyPlaying';
 import Users from './../room/Users';
 import Queue from './../room/Queue';
