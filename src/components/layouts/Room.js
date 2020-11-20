@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Songs from '../room/Songs';
+import Songs from './../room/Songs';
 import CurrentlyPlaying from '../room/CurrentlyPlaying';
-import Users from '../room/Users';
-import Queue from '../room/Queue';
-import Player from '../utility/Player';
-import Popup from '../utility/Popup';
+import Users from './../room/Users';
+import Queue from './../room/Queue';
+import Player from './../utility/Player';
+import Popup from './../utility/Popup';
 
 class Room extends Component {
     render() {
