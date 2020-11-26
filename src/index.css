@@ -11,6 +11,10 @@ body {
   color: white;
 }
 
+.App {
+  min-height: 100vh;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -115,7 +119,74 @@ code {
   padding: 0;
 }
 
-.Queue .card-action {
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+  background-color: white;
+ 
+}
+
+.input-field>label {
+  color: black;
+}
+
+[type="checkbox"]+span:not(.lever):before, [type="checkbox"]:not(.filled-in)+span:not(.lever):after {
+  border: 2px solid white;
+}
+
+[type="checkbox"]:checked+span:not(.lever):before {
+  border-right: 2px solid #ff5722 !important;
+  border-bottom: 2px solid #ff5722 !important;
+}
+
+.login {
+  width: 600px;
+  margin-top: 180px;
+  color: white !important;
+}
+
+.login .btn-large {
+  width: 250px;
+}
+
+.login nav .brand-logo.center {
+  top: 50%;
+  font-size:60px;
+}
+
+.dashboard span {
+  font-size: 38px;
+}
+
+.singleroom {
+  box-shadow: 0px 13px 26px #00000080;
+  border-radius: 10px;
+}
+
+.singleroom .middle {
+  display: block;
+  margin: 0 auto;
+}
+
+.singleroom .small-text {
+  font-size: 0.75em;
+}
+
+.singleroom .infomation p {
+  text-align: center;
+}
+
+.singleroom .big {
+  font-size: 1.8em;
+}
+
+.user .card {
+  box-shadow: 0 19px 23px rgba(0,0,0,0.5);
+}
+
+.user .card-content {
+  padding: 0;
+}
+
+.user .card-action {
   border: 0;
   padding: 8px 5px;
   text-align: center;
@@ -299,4 +370,13 @@ code {
 
 .SearchSongs .card-action p {
   margin: 0;
+}
+
+.user .col {
+  padding: 0;
+  margin: 0 10px;
+}
+
+.user .user-song-author {
+  font-size: 0.8em;
 }

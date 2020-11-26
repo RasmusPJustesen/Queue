@@ -1,47 +1,38 @@
 import React, { Component } from 'react'
 
 class SignUp extends Component {
-  state = {
-    email: '',
-    password: '',
-    firstName: '',
-    lastName: '',
-  }
-  handleChange = (e) => {
-    this.setState({
-      [e.target.id]: e.target.value
-    })
-  }
-  handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(this.state);
-  }
+ 
   render() {
     return (
-      <div className="container">
-        <form className="white" onSubmit={this.handleSubmit}>
-          <h5 className="grey-text text-darken-3">Register</h5>
-          <div className="input-field">
-            <label htmlFor="email">Email</label>
-            <input type="email" id='email' onChange={this.handleChange} />
+      <div className="container login">
+      <form class="row">
+          <div className="input-field col s12">
+              <input id="email" type="text" className="validate"/>
+              <label className="active" for="email">Fulde navn:</label>
           </div>
-          <div className="input-field">
-            <label htmlFor="password">Password</label>
-            <input type="password" id='password' onChange={this.handleChange} />
+
+          <div className="input-field col s12">
+              <input id="password" type="text" className="validate"/>
+              <label className="active" for="password">Email:</label>
           </div>
-          <div className="input-field">
-            <label htmlFor="firstName">First Name</label>
-            <input type="text" id='firstName' onChange={this.handleChange} />
+
+          <div className="input-field col s12">
+              <input id="password" type="text" className="validate"/>
+              <label className="active" for="password">Kodeord:</label>
           </div>
-          <div className="input-field">
-            <label htmlFor="lastName">Last Name</label>
-            <input type="text" id='lastName' onChange={this.handleChange} />
+
+          <div className="input-field col s12">
+              <input id="password" type="text" className="validate"/>
+              <label className="active" for="password">Kodeord igen:</label>
           </div>
-          <div className="input-field">
-            <button className="btn pink lighten-1 z-depth-0">Register</button>
-          </div>
-        </form>
-      </div>
+          
+
+          <p className="center-align">
+              <a className="waves-effect waves-light btn-large deep-orange accent-2"> Opret </a>
+          </p>
+      </form>
+  </div>
+
     )
   }
 }

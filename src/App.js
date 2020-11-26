@@ -1,6 +1,7 @@
 import React from 'react';
 import Dashboard from './components/layouts/Dashboard';
 import Header from './components/layouts/Header';
+import CreateRoom from './components/dashboard/CreateRoom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
@@ -13,6 +14,7 @@ function App() {
         <Header />
         <Switch>
           <Route exact path='/'component={Dashboard} />
+          <Route exact path='/create'component={CreateRoom} />
           <Route path='/login'component={SignIn} />
           <Route path='/register'component={SignUp} />
           <Route path='/queue'component={Room} />
