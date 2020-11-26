@@ -24,7 +24,7 @@ class SignIn extends Component {
             </p>
 
             <p className="center-align">
-                <a className="waves-effect waves-light btn-large deep-orange accent-2">Login</a>
+                <a href="/" className="waves-effect waves-light btn-large deep-orange accent-2">Login</a>
             </p>
 
             <p className="center-align">

@@ -28,7 +28,7 @@ class SignUp extends Component {
           
 
           <p className="center-align">
-              <a className="waves-effect waves-light btn-large deep-orange accent-2"> Opret </a>
+              <a href="/" className="waves-effect waves-light btn-large deep-orange accent-2"> Opret </a>
           </p>
       </form>
   </div>
