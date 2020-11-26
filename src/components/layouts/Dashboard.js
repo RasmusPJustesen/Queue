@@ -1,16 +1,31 @@
 import React, { Component } from 'react'
-import CreateRoom from '../dashboard/CreateRoom.js'
+import FavoriteRooms from '../dashboard/FavoriteRooms.js'
 import AllRooms from '../dashboard/AllRooms.js'
 
 class Dashboard extends Component {
   render() {
     return (
-      <div className="dashboard container">
-        <div className="row">
-          <div className="col m4">
-            <CreateRoom /> 
+      <div className=" dashboard container">
+        <div className="row"> 
+      
+        <div className="col s12 row">
+        <span className="ml-2 col s10">
+         Favorit Rum
+         <button className="btn deep-orange accent-2 mr-3 mt-3 right"> <i class="fas fa-plus mr-3"></i> Nyt rum</button>
+        </span>   
+        
+        </div>
+          <div className="col s12 row">
+            <FavoriteRooms />
+            <FavoriteRooms />
+            <FavoriteRooms />
           </div>
-          <div className="col m4 offset-m2"> 
+          
+          <div className="col s12 row">
+          <hr/>
+            <h3 className="ml-4">Alle Rum</h3>   
+            <AllRooms />
+            <AllRooms />
             <AllRooms />
           </div>
         </div>

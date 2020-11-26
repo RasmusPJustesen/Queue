@@ -1,39 +1,48 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 class SignIn extends Component {
-    state = {
-        email: '',
-        password: ''
-    }
-    handleChange = (e) => {
-        this.setState({
-            [e.target.id]: e.target.value
-        })
-    }
-    handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(this.state);
-    }
+
     render() {
         return (
-            <div className="container">
-                <form onSubmit={this.handleSubmit} className="white">
-                    <h5 className="grey-text text-darken-3">Login</h5>
-                    <div className="input-field">
-                        <label htmlFor="email">Email</label>
-                        <input type="email" id="email" onChange={this.handleChange} />
-                    </div>
-                    <div className="input-field">
-                        <label htmlFor="password">Password</label>
-                        <input type="password" id="password" onChange={this.handleChange} />
-                    </div>
-                    <div className="input-field">
-                        <button className="btn pink lighten-1 z-depth-0">Login</button>
-                        </div>
-                </form>
+    <div className="container login">
+        <form class="row">
+            <div className="input-field col s12">
+                <input id="email" type="text" className="validate"/>
+                <label className="active" for="email">Email:</label>
             </div>
+
+            <div className="input-field col s12">
+                <input id="password" type="text" className="validate"/>
+                <label className="active" for="password">Kodeord:</label>
+            </div>
+            
+            <p className="col s12">
+                <label>
+                    <input type="checkbox" />
+                    <span className="white-text">Husk mig</span>
+                </label>
+            </p>
+
+            <p className="center-align">
+                <a className="waves-effect waves-light btn-large deep-orange accent-2">Login</a>
+            </p>
+
+            <p className="center-align">
+                <NavLink to="/register">Opret</NavLink>
+            </p>
+
+            <p className="center-align some mt-5">Eller login med</p>
+            <div className="image col s2 offset-s4">
+             <img style={{width: "85%"}} className="responsive-img" src="icons/facebook_icon.png" alt=""/>
+            </div>
+            <div className="image col s2">
+             <img className="responsive-img" src="icons/google_icon.png" alt=""/>
+            </div>
+        </form>
+    </div>
+
         )
     }
 }
 
-export default SignIn
+export default SignIn;
