@@ -6,7 +6,7 @@ class SearchSongs extends Component {
         <div className="SearchSongs">
           <div>
             <input type="text" className="mr-3 white-text" placeholder="Skriv sang titel her" />
-            <button className="btn"><i class="fas fa-search"></i> Søg</button>
+            <button className="btn"><i className="fas fa-search"></i> Søg</button>
           </div>
           <div className="song-results mt-1">
             <div className="card blue-grey darken-1">
