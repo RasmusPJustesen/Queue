@@ -25,16 +25,16 @@ class Player extends Component {
               <div className="col m3">
                 <div className="row mb-0 deep-orange-text text-accent-2">
                   <div className="col m3">
-                    <i class="fas fa-backward"></i>
+                    <i className="fas fa-backward"></i>
                   </div>
                   <div className="col m3">
-                    <i class="fas fa-play"></i>
+                    <i className="fas fa-play"></i>
                   </div>
                   <div className="col m3">
-                    <i class="fas fa-forward"></i>
+                    <i className="fas fa-forward"></i>
                   </div>
                   <div className="col m3">
-                    <i class="fas fa-volume-up"></i>
+                    <i className="fas fa-volume-up"></i>
                   </div>
                 </div>
               </div>

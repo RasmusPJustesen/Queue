@@ -1,8 +1,11 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const FavoriteRooms = () => {
   return (
     <div className="singleroom card col s3 deep-orange accent-2 ml-4">
+      <NavLink to="/queue" className="white-text">
+  
         <div className="card-content row">
             <div className="top col s12">
                  <i class="fas fa-star left"></i>
@@ -24,6 +27,7 @@ const FavoriteRooms = () => {
                 </div>
             </div>
         </div>
+        </NavLink>
     </div>
   ) 
 }
