@@ -13,9 +13,9 @@ function App() {
       <div className="App blue-grey darken-1 vh-100">
         <Header />
         <Switch>
-          <Route exact path='/'component={Dashboard} />
-          <Route exact path='/create'component={CreateRoom} />
-          <Route path='/login'component={SignIn} />
+         <Route exact path='/'component={SignIn} />
+          <Route path='/create'component={CreateRoom} />
+          <Route path='/dashboard'component={Dashboard} />
           <Route path='/register'component={SignUp} />
           <Route path='/queue'component={Room} />
         </Switch>

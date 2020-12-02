@@ -1,11 +1,18 @@
 import React from 'react';
 import SearchSongs from './SearchSongs';
 
-const Popup = () => {
+const Popup = (props) => {
+ 
+    const handleClick = () => {
+        props.changePopUp();
+      }
+
     return (
-        <div className="Popup hide">
+        <div className="Popup">
+            
             <div className="popup-box blue-grey darken-2 p-5">
-                <div className="popup-close"><i class="fas fa-times"></i></div>
+                <div onClick={handleClick} className="popup-close"><i className="fas fa-times"></i></div>
+                    
                 <SearchSongs />
             </div>
         </div>
