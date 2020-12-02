@@ -10,20 +10,20 @@ import { NavLink } from 'react-router-dom'
 
 class Room extends Component {
     state = {
-        showPopUp: false
+        showPopUp: false 
         
     }
     changePopUp = () => {
-      
-        console.log("before: " + this.state.showPopUp);
-        this.state.showPopUp = !this.state.showPopUp;
-        console.log("after: " + this.state.showPopUp);
+        this.setState({ showPopUp : !this.state.showPopUp})   
     }
 
     render() {
-       
+        const showPopUp = this.state.showPopUp;
+        let popup;
+        if (showPopUp) {
+          popup = <Popup changePopUp={this.changePopUp} />;
+        }
 
-        console.log(this.state.showPopUp);
         return (
             <div className="Room">
               <NavLink to="/dashboard" className="white-text mt-5 room-back-arrow"><i className="fas fa-arrow-left mr-2"></i>afslut rum</NavLink>
@@ -39,7 +39,7 @@ class Room extends Component {
                         </div>
                     </div>
                 </div>
-                <Popup showPopUp={this.state.showPopUp} />
+                {popup}
                 <Player />
             </div>
         )
