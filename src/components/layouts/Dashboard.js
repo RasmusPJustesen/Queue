@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 import FavoriteRooms from '../dashboard/FavoriteRooms.js'
 import AllRooms from '../dashboard/AllRooms.js'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom';
 import { NavLink } from 'react-router-dom'
 
 class Dashboard extends Component {
   render() {
+    const { auth } = this.props;
+    if (!auth.uid) return <Redirect to="/login" />
+
     return (
       <div className=" dashboard container">
         <div className="row"> 
@@ -35,4 +40,10 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth
+    }
+}
+
+export default connect(mapStateToProps)(Dashboard)

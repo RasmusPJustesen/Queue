@@ -5,8 +5,9 @@ import Users from './../room/Users';
 import Queue from './../room/Queue';
 import Player from './../utility/Player';
 import Popup from './../utility/Popup';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { NavLink } from 'react-router-dom'
-
 
 class Room extends Component {
     state = {
@@ -18,6 +19,9 @@ class Room extends Component {
     }
 
     render() {
+        const { auth } = this.props;
+        if (!auth.uid) return <Redirect to="/login" />
+
         const showPopUp = this.state.showPopUp;
         let popup;
         if (showPopUp) {
@@ -46,4 +50,10 @@ class Room extends Component {
     }
 }
 
-export default Room;
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth
+    }
+}
+
+export default connect(mapStateToProps)(Room);
