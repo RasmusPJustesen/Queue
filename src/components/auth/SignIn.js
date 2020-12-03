@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signIn } from '../../store/actions/authActions';
 
@@ -20,7 +20,11 @@ class SignIn extends Component {
     }
 
     render() {
+        const { auth } = this.props;
+        if (auth.uid) return <Redirect to="/" />
+
         const { authError } = this.props;
+        
         return (
             <div className="container login">
                 <form className="row" onSubmit={this.handleSubmit}>
@@ -66,7 +70,8 @@ class SignIn extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        authError: state.auth.authError
+        authError: state.auth.authError,
+        auth: state.firebase.auth
     }
 }
 
