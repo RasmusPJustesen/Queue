@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { signOut } from '../../store/actions/authActions';
 
 class ProfileInfomation extends Component {
+    handleClick = () => {
+        this.props.signOut;
+    }
+
     render() {
         return(
-            <div></div>
+            <div><a onClick={this.handleClick}>log out</a></div>
         )
     }
 }
 
-export default ProfileInfomation;
+mapDispatchToProps = (dispatch) => {
+    return {
+        signOut: () => dispatch(signOut())
+    }
+}
+
+export default connect(null, mapDispatchToProps)(ProfileInfomation);

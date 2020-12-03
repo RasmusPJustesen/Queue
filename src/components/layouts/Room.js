@@ -5,9 +5,14 @@ import Users from './../room/Users';
 import Queue from './../room/Queue';
 import Player from './../utility/Player';
 import Popup from './../utility/Popup';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 class Room extends Component {
     render() {
+        const { auth } = this.props;
+        if (!auth.uid) return <Redirect to="/login" />
+
         return (
             <div className="Room">
                 <a href="/" className="white-text mt-5 room-back-arrow"><i class="fas fa-arrow-left mr-2"></i>afslut rum</a>
@@ -30,4 +35,10 @@ class Room extends Component {
     }
 }
 
-export default Room;
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth
+    }
+}
+
+export default connect(mapStateToProps)(Room);
