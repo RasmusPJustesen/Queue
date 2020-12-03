@@ -1,5 +1,6 @@
 import React from 'react'
 import InviteUsers from '../utility/InviteUsers';
+import { NavLink } from 'react-router-dom'
 
 const CreateRoom = () => {
   return (
@@ -13,8 +14,8 @@ const CreateRoom = () => {
            <InviteUsers />
         </div>
         <div className="col s6">
-         <button className="btn deep-orange accent-2 mt-3 right"> <i class="fas fa-plus mr-3"></i> Opret</button>
-        </div>
+        <NavLink to="/queue" className="btn deep-orange accent-2 mr-3 mt-3 right"><i className="fas fa-plus mr-3"></i> Opret</NavLink>
+           </div>
       </div>
     </div>
   ) 

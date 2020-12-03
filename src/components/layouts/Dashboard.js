@@ -3,6 +3,7 @@ import FavoriteRooms from '../dashboard/FavoriteRooms.js'
 import AllRooms from '../dashboard/AllRooms.js'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 
 class Dashboard extends Component {
   render() {
@@ -16,7 +17,7 @@ class Dashboard extends Component {
         <div className="col s12 row">
         <span className="ml-2 col s10">
          Favorit Rum
-         <button className="btn deep-orange accent-2 mr-3 mt-3 right"> <i class="fas fa-plus mr-3"></i> Nyt rum</button>
+         <NavLink to="/create" className="btn deep-orange accent-2 mr-3 mt-3 right"><i className="fas fa-plus mr-3"></i> Nyt rum</NavLink>
         </span>   
         
         </div>
