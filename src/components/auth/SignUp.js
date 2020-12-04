@@ -1,40 +1,81 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
+import { signUp } from '../../store/actions/authActions'
 
 class SignUp extends Component {
- 
-  render() {
-    return (
-      <div className="container login">
-      <form class="row">
-          <div className="input-field col s12">
-              <input id="email" type="text" className="validate"/>
-              <label className="active" for="email">Fulde navn:</label>
-          </div>
+    state = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: ''
+    }
 
-          <div className="input-field col s12">
-              <input id="password" type="text" className="validate"/>
-              <label className="active" for="password">Email:</label>
-          </div>
+    handleChange = (e) => {
+        this.setState({
+            [e.target.id]: e.target.value
+        })
+    }
 
-          <div className="input-field col s12">
-              <input id="password" type="text" className="validate"/>
-              <label className="active" for="password">Kodeord:</label>
-          </div>
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.signUp(this.state)
+    }
 
-          <div className="input-field col s12">
-              <input id="password" type="text" className="validate"/>
-              <label className="active" for="password">Kodeord igen:</label>
-          </div>
-          
+    render() {
+        const { auth, authError } = this.props;
+        if (auth.uid) return <Redirect to="/" />
 
-          <p className="center-align">
-              <a href="/" className="waves-effect waves-light btn-large deep-orange accent-2"> Opret </a>
-          </p>
-      </form>
-  </div>
+        return (
+            <div className="container login">
+                <form className="row" onSubmit={this.handleSubmit}>
+                    <div className="input-field col s12">
+                        <input id="firstName" type="text" className="validate" onChange={this.handleChange} />
+                        <label className="active" htmlFor="firstName">Navn:</label>
+                    </div>
 
-    )
-  }
+                    <div className="input-field col s12">
+                        <input id="lastName" type="text" className="validate" onChange={this.handleChange} />
+                        <label className="active" htmlFor="lastName">Efternavn:</label>
+                    </div>
+
+                    <div className="input-field col s12">
+                        <input id="email" type="email" className="validate" onChange={this.handleChange} />
+                        <label className="active" htmlFor="email">Email:</label>
+                    </div>
+
+                    <div className="input-field col s12">
+                        <input id="password" type="password" className="validate" onChange={this.handleChange} />
+                        <label className="active" htmlFor="password">Kodeord:</label>
+                    </div>
+
+                    {/* <div className="input-field col s12">
+                        <input id="password2" type="password" className="validate"/>
+                        <label className="active" for="password2">Kodeord igen:</label>
+                    </div> */}
+
+                    <p className="center-align">
+                        <button className="btn waves-effect waves-light btn-large deep-orange accent-2">Opret</button>
+                    </p>
+                    <div className="center white-text">
+                        { authError ? <p>{authError}</p> : null }
+                    </div>
+                </form>
+            </div>
+        )
+    }
 }
 
-export default SignUp
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signUp: (newUser) => dispatch(signUp(newUser))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
