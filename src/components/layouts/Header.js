@@ -5,16 +5,17 @@ import { signOut } from '../../store/actions/authActions'
 
 
 const Header = (props) => {
-  const { auth } = props;
-  console.log(auth);
-
-  const loggedIn = auth.uid ? <button onClick={props.signOut}>Logout</button> : null;
+  const { auth, profile } = props;
+  
+  const profilePage = auth.uid ? <Link to="/profile" className="btn btn-floating deep-orange accent-2 right mt-3">{profile.initials}</Link> : null;
 
   return (
     <nav className="Header nav-wrapper blue-grey darken-2">
       <div className="container">
-        <Link to="/" className="brand-logo center">Queue</Link>
-          {loggedIn}
+        <div className="row">
+          <Link to="/" className="brand-logo center">Queue</Link>
+          {profilePage}
+        </div>
       </div>
     </nav>
   ) 
@@ -23,7 +24,8 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    profile: state.firebase.profile
   }
 }
 
