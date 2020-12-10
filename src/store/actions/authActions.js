@@ -36,7 +36,8 @@ export const signUp = (newUser) => {
             //create new document on collection users and set the id to the new auth-user's uid
             return firestore.collection('Users').doc(respond.user.uid).set({
                 firstName: newUser.firstName,
-                lastName: newUser.lastName
+                lastName: newUser.lastName,
+                initials: newUser.firstName[0] + newUser.lastName[0]
             })
         }).then(() => {
             dispatch({ type: 'SIGNUP_SUCCESS' })

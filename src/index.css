@@ -1,4 +1,5 @@
 @import "spacing.css";
+@import "display-flex.css";
 
 body {
   margin: 0;
@@ -380,4 +381,77 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 
 .user .user-song-author {
   font-size: 0.8em;
+}
+
+.Profile .profile-image {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  font-size: 150px;
+  height: 45vh;
+}
+
+.Profile .profile-settings {
+  height: 45vh;
+}
+
+.Profile .profile-settings ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Profile .profile-settings ul li span {
+  position: relative;
+  background-color: lightgray;
+  width: 30px;
+  height: 15px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.Profile .profile-settings ul li .settings-notify::after {
+  content: '';
+  position: absolute;
+  width:50%;
+  height: 100%;
+  background-color: grey;
+  border-radius: 50%;
+  right: 50%;
+}
+
+.Profile .profile-settings ul li .settings-darkmode::after {
+  content: '';
+  position: absolute;
+  width:50%;
+  height: 100%;
+  background-color: #ff6e40;
+  border-radius: 50%;
+  right: 0;
+}
+
+.Profile .profile-info {
+  height: 45vh;
+}
+
+.Profile .profile-apps {
+  height: 45vh;
+}
+
+.Profile .input-fullName {
+  border: none !important;
+  background-color: #00000000 !important;
+  color: white !important;
+  font-size: 32px !important;
+}
+
+.Profile .input-email, .Profile .input-password {
+  border: none !important;
+  background-color: #00000000 !important;
+  color: white !important;
+  font-size: 18px !important;
+}
+
+.Profile #save-btn {
+  display: none;
 }
