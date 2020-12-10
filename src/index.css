@@ -437,3 +437,21 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 .Profile .profile-apps {
   height: 45vh;
 }
+
+.Profile .input-fullName {
+  border: none !important;
+  background-color: #00000000 !important;
+  color: white !important;
+  font-size: 32px !important;
+}
+
+.Profile .input-email, .Profile .input-password {
+  border: none !important;
+  background-color: #00000000 !important;
+  color: white !important;
+  font-size: 18px !important;
+}
+
+.Profile #save-btn {
+  display: none;
+}

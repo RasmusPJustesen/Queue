@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+import { getFirestore } from 'redux-firestore';
 import { signOut } from '../../store/actions/authActions'
 
 class Profile extends Component {
@@ -9,6 +10,33 @@ class Profile extends Component {
         if (!auth.uid) return <Redirect to="/login" />
 
         const fullName = profile.firstName + ' ' + profile.lastName;
+
+        const edit = () => {
+            let toggle = document.getElementById("input-fullName");
+
+            if (toggle.classList.contains("input-fullName")) {
+                document.getElementById("input-fullName").removeAttribute("disabled");
+                document.getElementById("input-fullName").classList.remove('input-fullName');
+                
+                document.getElementById("edit-btn").style.display = "none";
+                document.getElementById("save-btn").style.display = "block";
+            } else {
+                document.getElementById("input-fullName").setAttribute("disabled", "disabled");
+                document.getElementById("input-fullName").classList.add('input-fullName');
+
+                document.getElementById("edit-btn").style.display = "block";
+                document.getElementById("save-btn").style.display = "none";
+                
+                getFirestore().collection('Users').doc(auth.uid).set({
+                    //set firstname to value of 'input-fullName' if value is not null else set it to placeholder of 'input-fullName'
+                    firstName: document.getElementById('input-fullName').value ? (document.getElementById('input-fullName').value).split(" ")[0] : (document.getElementById('input-fullName').getAttribute("placeholder")).split(" ")[0],
+                    //set lastname to value of 'input-fullName' if value is not null else set it to placeholder of 'input-fullName'
+                    lastName: document.getElementById('input-fullName').value ? (document.getElementById('input-fullName').value).split(" ")[1] : (document.getElementById('input-fullName').getAttribute("placeholder")).split(" ")[1],
+                    //set initials to first letter of the first word in 'input-fullName' and the first letter of the second word in 'input-fullName'
+                    initials: document.getElementById('input-fullName').value ? (document.getElementById('input-fullName').value).split(" ")[0][0] + (document.getElementById('input-fullName').value).split(" ")[1][0] : (document.getElementById('input-fullName').getAttribute("placeholder")).split(" ")[0][0] + (document.getElementById('input-fullName').getAttribute("placeholder")).split(" ")[1][0]
+                })
+            }
+        }
 
         return(
             <div className="Profile container">
@@ -34,16 +62,17 @@ class Profile extends Component {
                     <div className="col m9 profile-right">
                         <div className="profile-info">
                             <div className="row">
-                                <div className="col m4 mt-5">
-                                    <h4 className="mb-4 mt-0"><b>{fullName}</b></h4>
-                                    <h5>Email</h5>
-                                    <h6>{auth.email}</h6>
-                                    <h5>Kodeord</h5>
-                                    <h6>*********</h6>
-                                </div>
                                 <div className="col m8 mt-5">
+                                    <input type="text" name="fullName" className="browser-default input-fullName" id="input-fullName" placeholder={fullName} disabled />
+                                    <h5 className="mb-0">Email</h5>
+                                    <input type="email" name="email" className="input-email mt-0" placeholder={auth.email} title="Det er ikke muligt at ændre email på nuværende tidspunkt" disabled />
+                                    <h5 className="mb-0">Kodeord</h5>
+                                    <input type="password" name="password" className="input-password mt-0" placeholder="********" title="Kontakt os for at ændre kodeord" disabled />
+                                </div>
+                                <div className="col m4 mt-5">
                                     <div className="right d-flex flex-column">
-                                        <button className="btn deep-orange accent-2 mb-2">Rediger profil</button>
+                                        <button onClick={edit} id="edit-btn" className="btn deep-orange accent-2 mb-2">Rediger profil</button>
+                                        <button onClick={edit} id="save-btn" className="btn deep-orange accent-2 mb-2">Gem</button>
                                         <button onClick={this.props.signOut} className="btn red">Logout</button>
                                     </div>
                                     
