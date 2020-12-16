@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
-import FavoriteRooms from '../dashboard/FavoriteRooms.js'
 import AllRooms from '../dashboard/AllRooms.js'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom';
-import { NavLink } from 'react-router-dom'
+import { Redirect, NavLink } from 'react-router-dom';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 
 class Dashboard extends Component {
+
+
+
   render() {
+    
+    const {  rooms } = this.props;
     const { auth } = this.props;
+    
+
     if (!auth.uid) return <Redirect to="/login" />
 
     return (
@@ -16,23 +23,24 @@ class Dashboard extends Component {
       
         <div className="col s12 row">
         <span className="ml-2 col s10">
-         Favorit Rum
-         <NavLink to="/create" className="btn deep-orange accent-2 mr-3 mt-3 right"><i className="fas fa-plus mr-3"></i> Nyt rum</NavLink>
+         Mine Queues
+         <NavLink to={{
+           pathname: '/create',
+          
+             uid: auth.uid
+           
+         }} className="btn deep-orange accent-2 mr-3 mt-3 right"><i className="fas fa-plus mr-3"></i> Nyt rum</NavLink>
         </span>   
         
         </div>
           <div className="col s12 row">
-            <FavoriteRooms />
-            <FavoriteRooms />
-            <FavoriteRooms />
+          <AllRooms rooms={rooms} auth={auth} />
           </div>
           
           <div className="col s12 row">
           <hr/>
-            <h3 className="ml-4">Alle Rum</h3>   
-            <AllRooms />
-            <AllRooms />
-            <AllRooms />
+           
+           
           </div>
         </div>
       </div>
@@ -41,9 +49,21 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
+
+  
+  const queue = state.firestore.ordered.Queues
     return {
-        auth: state.firebase.auth
+        auth: state.firebase.auth,
+        rooms: queue
+        
     }
 }
 
-export default connect(mapStateToProps)(Dashboard)
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    {
+      collection: 'Queues'
+    }
+  ])
+)(Dashboard)
