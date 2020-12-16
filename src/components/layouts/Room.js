@@ -7,8 +7,9 @@ import Player from './../utility/Player';
 import Popup from './../utility/Popup';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { NavLink } from 'react-router-dom'
-
+import { NavLink } from 'react-router-dom';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 class Room extends Component {
     state = {
         showPopUp: false 
@@ -19,7 +20,14 @@ class Room extends Component {
     }
 
     render() {
+
+        
+        
         const { auth } = this.props;
+        const { queue } = this.props
+
+       
+      
         if (!auth.uid) return <Redirect to="/login" />
 
         const showPopUp = this.state.showPopUp;
@@ -28,32 +36,53 @@ class Room extends Component {
           popup = <Popup changePopUp={this.changePopUp} />;
         }
 
-        return (
+        if(queue) {
+            return (
             <div className="Room">
-              <NavLink to="/dashboard" className="white-text mt-5 room-back-arrow"><i className="fas fa-arrow-left mr-2"></i>afslut rum</NavLink>
-                <div className="container">
-                    <div className="row mt-3 mb-0">
-                        <div className="col s12 m9">
-                            <CurrentlyPlaying />
-                            <Queue   />
-                        </div>
-                        <div className="col s12 m3">
-                            <Songs  changePopUp={this.changePopUp} />
-                            <Users />
-                        </div>
-                    </div>
-                </div>
-                {popup}
-                <Player />
-            </div>
-        )
+            <NavLink to="/dashboard" className="white-text mt-5 room-back-arrow"><i className="fas fa-arrow-left mr-2"></i>afslut rum</NavLink>
+              <div className="container">
+                  <div className="row mt-3 mb-0">
+                      <div className="col s12 m9">
+                          <CurrentlyPlaying />
+                          <Queue queue={queue.queues.song}   />
+                          
+                          
+                      </div>
+                      <div className="col s12 m3">
+                          <Songs  changePopUp={this.changePopUp} />
+                          <Users user={queue.users.user} />
+                      </div>
+                  </div>
+              </div>
+              {popup}
+              <Player />
+          </div>
+          )
+        }
+        else {
+            return (
+                <div className="container center"><p>Loadin project...</p></div>
+            )
+        }  
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+    const id = ownProps.match.params.id;
+    const queues = state.firestore.data.Queues
+    const queue = queues ? queues[id] : null
     return {
-        auth: state.firebase.auth
+        auth: state.firebase.auth,
+        queue: queue
     }
 }
 
-export default connect(mapStateToProps)(Room);
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([
+        {
+           // collection: 'Songs',
+            collection: 'Queues'
+        }
+    ])
+)(Room);

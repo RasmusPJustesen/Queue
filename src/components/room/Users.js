@@ -1,6 +1,22 @@
 import React from 'react'
 
-const Users = () => {
+const Users = ({ user }) => {
+  console.log(user);
+
+  const htmlList = user.length ? (
+    user.map((user, index) => {
+        return (
+          <li key={index}>
+          <div>
+            <img src={user.image} alt=""/>
+            <p>{user.name}</p>
+          </div>
+        </li>  
+        )
+    })
+) : (
+    <div className="center">no posts yet</div>
+);
   return (
     <div className="Users">
       <div className="flex justify-content-between valign-wrapper">
@@ -9,20 +25,9 @@ const Users = () => {
       </div>
       <div>
         <ol>
-          <li>
-            <div>
-              <img src="/images/rasmus.jpg" alt=""/>
-              <p>Rasmus</p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="/images/nicklas.jpg" alt=""/>
-              <p>Nicklas</p>
-            </div>
-          </li>
+          {htmlList}
         </ol>
-      </div>
+       </div>
     </div>
   ) 
 }

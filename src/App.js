@@ -19,7 +19,7 @@ class App extends Component {
             <Route exact path='/create'component={CreateRoom} />
             <Route path='/login'component={SignIn} />
             <Route path='/register'component={SignUp} />
-            <Route path='/queue'component={Room} />
+            <Route path='/queue/:id'component={Room} />
             <Route path='/profile'component={Profile} />
           </Switch>
       </div>

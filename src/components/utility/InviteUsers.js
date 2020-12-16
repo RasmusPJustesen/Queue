@@ -1,13 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class InviteUsers extends Component {
-    render() {
+const InviteUsers = (props) => {
+
+  const handleClick = () => {
+    //console.log(props.handleSubmit);
+    props.handleSubmit();
+  }
+    
       return (
         
         <div className="user input-field col s12">
         <input id="email" type="text" className="validate"/>
         <label className="active" for="email">Email:</label>
-        <button className="btn deep-orange accent-2">Invite</button>
+        <button onClick={handleClick} className="btn deep-orange accent-2">Invite</button>
           <div className="row mt-3">
           <div className="col m3 card blue-grey darken-1">
               <div className="card-content">
@@ -30,7 +35,7 @@ class InviteUsers extends Component {
        </div>
         
       )
-    }
+    
 }
 
 export default InviteUsers;

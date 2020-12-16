@@ -1,12 +1,26 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createProject } from '../../store/actions/projectActions'
+
 
 class SearchSongs extends Component {
+  state = {
+    title: 'LOL',
+    author: 'Take Over',
+    image: '/images/takingover.jpg'
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(this.state);
+    this.props.createProject(this.state);
+  }
     render() {
       return (
         <div className="SearchSongs">
           <div>
             <input type="text" className="mr-3 white-text" placeholder="Skriv sang titel her" />
-            <button className="btn"><i className="fas fa-search"></i> Søg</button>
+            <button className="btn" onClick={this.handleSubmit}><i className="fas fa-search"></i> Søg</button>
           </div>
           <div className="song-results mt-1">
             <div className="card blue-grey darken-1">
@@ -105,4 +119,10 @@ class SearchSongs extends Component {
     }
 }
 
-export default SearchSongs;
+const mapDispatchToProps = dispatch => {
+  return {
+    createProject: (queue) => dispatch(createProject(queue))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SearchSongs);
