@@ -8,7 +8,6 @@ const AllRooms = ({ rooms, auth }) => {
       <div className="all-rooms">
           {rooms && rooms.map(room => {            
             if(auth.uid === room.authorid){
-     
             return (
               <div className="singleroom card deep-orange accent-2 ml-4" key={room.id}>
               <NavLink to={'/queue/' + room.id} className="white-text">
@@ -38,6 +37,11 @@ const AllRooms = ({ rooms, auth }) => {
                 </div>
                 </NavLink>
                 </div>
+            )
+          }
+          else {
+            return (
+              <div className="container center"> <p>Loading page......</p> </div>
             )
           }
         })
