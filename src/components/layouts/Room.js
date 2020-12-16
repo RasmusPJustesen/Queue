@@ -6,10 +6,10 @@ import Queue from './../room/Queue';
 import Player from './../utility/Player';
 import Popup from './../utility/Popup';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
+
 class Room extends Component {
     state = {
         showPopUp: false 

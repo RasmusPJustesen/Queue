@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import FavoriteRooms from '../dashboard/FavoriteRooms.js'
 import AllRooms from '../dashboard/AllRooms.js'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 
@@ -16,17 +14,7 @@ class Dashboard extends Component {
     const {  rooms } = this.props;
     const { auth } = this.props;
     
-    
-    if(rooms){
-     var users = [];
-      rooms.forEach(user => {
-        //console.log(user.users);
-        users.push(user.users);
-      })
 
-    }
-
-   
     if (!auth.uid) return <Redirect to="/login" />
 
     return (
@@ -46,7 +34,7 @@ class Dashboard extends Component {
         
         </div>
           <div className="col s12 row">
-          <AllRooms rooms={rooms} auth={auth} users={users} />
+          <AllRooms rooms={rooms} auth={auth} />
           </div>
           
           <div className="col s12 row">
