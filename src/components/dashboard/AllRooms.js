@@ -2,11 +2,8 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import moment from 'moment';
 
-const AllRooms = ({ rooms, auth, users }) => {
+const AllRooms = ({ rooms, auth }) => {
  
-
-
-
   return (
       <div className="all-rooms">
           {rooms && rooms.map(room => {            
