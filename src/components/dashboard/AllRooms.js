@@ -41,7 +41,7 @@ const AllRooms = ({ rooms, auth }) => {
           }
           else {
             return (
-              <div className="container center"> <p>Loading page......</p> </div>
+            <div></div>
             )
           }
         })
