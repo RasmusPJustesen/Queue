@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import moment from 'moment';
 
 const AllRooms = ({ rooms, auth, users }) => {
  
@@ -22,7 +23,7 @@ const AllRooms = ({ rooms, auth, users }) => {
                 </div>
                 <div className="middle col s12 valign-wrapper center-align">
                     <h5>{room.title}</h5>
-                    <p className="small-text"> <i className="fas fa-calendar-day mr-2"></i>  20. November</p>
+                    <p className="small-text"> <i className="fas fa-calendar-day mr-2"></i> {moment(room.createdAt.toDate().toString()).format('LL')} </p>
                 </div>
 
                 <div className="bottom col s12 mt-4 row">
