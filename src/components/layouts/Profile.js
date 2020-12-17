@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { getFirestore } from 'redux-firestore';
+import { getFirestore } from 'redux-firestore'
 import { signOut } from '../../store/actions/authActions'
 
 class Profile extends Component {
