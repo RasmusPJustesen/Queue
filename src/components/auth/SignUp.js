@@ -31,27 +31,27 @@ class SignUp extends Component {
                 <form className="row" onSubmit={this.handleSubmit}>
                     <div className="input-field col s12">
                         <input id="firstName" type="text" className="validate" onChange={this.handleChange} />
-                        <label className="active" htmlFor="firstName">Navn:</label>
+                        <label htmlFor="firstName">Navn:</label>
                     </div>
 
                     <div className="input-field col s12">
                         <input id="lastName" type="text" className="validate" onChange={this.handleChange} />
-                        <label className="active" htmlFor="lastName">Efternavn:</label>
+                        <label htmlFor="lastName">Efternavn:</label>
                     </div>
 
                     <div className="input-field col s12">
                         <input id="email" type="email" className="validate" onChange={this.handleChange} />
-                        <label className="active" htmlFor="email">Email:</label>
+                        <label htmlFor="email">Email:</label>
                     </div>
 
                     <div className="input-field col s12">
                         <input id="password" type="password" className="validate" onChange={this.handleChange} />
-                        <label className="active" htmlFor="password">Kodeord:</label>
+                        <label htmlFor="password">Kodeord:</label>
                     </div>
 
                     {/* <div className="input-field col s12">
                         <input id="password2" type="password" className="validate"/>
-                        <label className="active" for="password2">Kodeord igen:</label>
+                        <label for="password2">Kodeord igen:</label>
                     </div> */}
 
                     <p className="center-align">

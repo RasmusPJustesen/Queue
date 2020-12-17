@@ -31,12 +31,12 @@ class SignIn extends Component {
                 <form className="row" onSubmit={this.handleSubmit}>
                     <div className="input-field col s12">
                         <input id="email" type="email" className="validate" onChange={this.handleChange} />
-                        <label className="active" htmlFor="email">Email:</label>
+                        <label htmlFor="email">Email:</label>
                     </div>
 
                     <div className="input-field col s12">
                         <input id="password" type="password" className="validate" onChange={this.handleChange} />
-                        <label className="active" htmlFor="password">Kodeord:</label>
+                        <label htmlFor="password">Kodeord:</label>
                     </div>
                     <div className="white-text center">
                         { authError ? <p>{authError}</p> : null }

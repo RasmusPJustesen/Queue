@@ -28,12 +28,12 @@ class CreateRoom extends Component {
                     <div className="col s6 mt-5">
                         <div className="input-field col s12">
                             <input id="title" type="text" className="validate" onChange={this.handleChange} />
-                            <label className="active" for="title">Rum navn:</label>
+                            <label for="title">Rum navn:</label>
                         </div>
                         <InviteUsers handleSubmit={this.handleSubmit} />
                     </div>
                     <div className="col s6">
-                        <NavLink to="/queue" className="btn deep-orange accent-2 mr-3 mt-3 right"><i className="fas fa-plus mr-3"></i> Opret</NavLink>
+                        <NavLink to="/queue" className="btn deep-orange accent-2 mr-3 mt-3 right"><i className="fas fa-plus mr-3"></i>Opret</NavLink>
                     </div>
                 </div>
             </div>
