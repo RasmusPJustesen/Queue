@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { getFirestore } from 'redux-firestore'
 import { signOut } from '../../store/actions/authActions'
+import Connected from 'components/profile/Connected'
 
 class Profile extends Component {
     render() {
@@ -81,7 +82,7 @@ class Profile extends Component {
                         </div>
                         <div className="profile-apps">
                             <hr className="mb-4"/>
-                            <div className="btn green"><i className="fab fa-spotify mr-2"></i>Spotify</div>
+                            <Connected />
                         </div>
                     </div>
                 </div>
