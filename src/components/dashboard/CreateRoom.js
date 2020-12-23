@@ -5,10 +5,18 @@ import { createProject } from '../../store/actions/roomActions'
 import { connect } from 'react-redux'
 
 class CreateRoom extends Component {
+
     state = {
         title: '',
-        authorid: this.props.location.uid
+        authorid: this.props.location.auth.uid,
+        users: {
+            user: [{
+                name: this.props.location.profile.firstName,
+                authorid: this.props.location.auth.uid
+            },]
+    },
     }
+
 
     handleChange = (e) => {
         this.setState({
@@ -20,8 +28,19 @@ class CreateRoom extends Component {
         this.props.createProject(this.state);
     }
 
+    inviteUser = (e) => {
+        this.setState({
+            ...this.state,
+            users:[{...this.state.users},]
+                
+            
+        })
+        console.log(this.state);
+
+    }
+
     render() {
-        console.log(this.props.location.uid);
+       
         return (
             <div className="container createroom mt-5">
                 <div className="row">
@@ -30,10 +49,10 @@ class CreateRoom extends Component {
                             <input id="title" type="text" className="validate" onChange={this.handleChange} />
                             <label for="title">Rum navn:</label>
                         </div>
-                        <InviteUsers handleSubmit={this.handleSubmit} />
+                        <InviteUsers currentState={this.state} inviteUser={this.inviteUser} />
                     </div>
                     <div className="col s6">
-                        <NavLink to="/queue" className="btn deep-orange accent-2 mr-3 mt-3 right"><i className="fas fa-plus mr-3"></i>Opret</NavLink>
+                        <button onClick={this.handleSubmit} className="btn deep-orange accent-2 mr-3 mt-3 right"><i className="fas fa-plus mr-3"></i>Opret</button>
                     </div>
                 </div>
             </div>

@@ -4,8 +4,10 @@ const InviteUsers = (props) => {
 
     const handleClick = () => {
         //console.log(props.handleSubmit);
-        props.handleSubmit();
+        props.inviteUser();
     }
+
+    console.log(props);
     
     return (
         <div className="user input-field col s12">

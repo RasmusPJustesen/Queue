@@ -8,9 +8,6 @@ export const createProject = (queue) => {
         queues: {
           song:[],
         },
-        users: {
-          user: []
-        },
         createdAt: new Date()
       }).then(() => {
         dispatch({ type: 'CREATE_ROOM', queue });
