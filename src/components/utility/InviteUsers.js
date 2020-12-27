@@ -2,38 +2,60 @@ import React from 'react'
 
 const InviteUsers = (props) => {
 
-    const handleClick = () => {
-        //console.log(props.handleSubmit);
-        props.inviteUser();
-    }
+    const { users } = props;
+    const { filteredUsers } = props;
+  
 
-    console.log(props);
-    
-    return (
-        <div className="user input-field col s12">
-            <input id="email" type="text" className="validate"/>
-            <label for="email">Email:</label>
-            <button onClick={handleClick} className="btn deep-orange accent-2">Invite</button>
-            <div className="row mt-3">
-                <div className="col m3 card blue-grey darken-1">
-                    <div className="card-content">
-                        <img src="/images/nicklas.jpg" className="responsive-img" alt=""/>
-                    </div>
-                    <div className="card-action">
-                        <p className="user-song-author">Nicklas Degnebolig</p>
-                    </div>
+    const htmlList = filteredUsers.length ? (
+        filteredUsers.map((user, index) => {
+            return (
+                <div className="col m3 card blue-grey darken-1" key={user.id} onClick={() => handleClick(user)}>
+                <div className="card-content">
+                  
                 </div>
-                <div className="col m3 card blue-grey darken-1">
-                    <div className="card-content">
-                        <img src="/images/rasmus.jpg" className="responsive-img" alt=""/>
-                    </div>
-                    <div className="card-action">
-                        <p className="user-song-author">Rasmus Justessen</p>
-                    </div>
+                <div className="card-action">
+                    <p className="user-song-author">{user.firstName} {user.lastName}</p>
                 </div>
             </div>
+            )
+        })
+        ) : (
+            <div className="center">no posts yet...</div>
+        );
+       
+
+    console.log(props);
+    let currentUsers = users;
+    const handleClick = (user) => {
+        console.log(user);
+        props.inviteUser(user);
+    }
+
+    const handleChange = (e) => {
+        props.filterChange(e.target.value);
+        
+    }
+
+    const searchButton = () => {
+       props.search(); 
+    }
+
+    
+    
+ 
+    return (
+        <div className="user input-field col s12">
+            <input id="email" type="text" className="validate" onChange={handleChange}/>
+            <label for="email">Email:</label>
+            <button onClick={searchButton} className="btn deep-orange accent-2">Søg</button>
+            <div className="row mt-3">
+              
+            {htmlList}
+
+           </div>
         </div>
     ) 
+
 }
 
 export default InviteUsers;

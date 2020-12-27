@@ -2,8 +2,6 @@ import React from 'react';
 
 const Queue = ({queue}) => {
   
-    console.log(queue);
-
     const htmlList = queue.length ? (
         queue.map((song, index) => {
             return (

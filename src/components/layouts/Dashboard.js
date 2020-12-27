@@ -22,20 +22,17 @@ class Dashboard extends Component {
             })
             
             rooms.forEach(room => {
-              console.log(room);
               if(room.users.user.length > 0){
                 let users = room.users.user;
                 users.forEach(user => {
-                  console.log(user);
-                  if(user.authorid === auth.uid) {
+                  if(user.id === auth.uid) {
                     myRooms.push(room)
                   }
                 })
               }
             })
         }
-        console.log(myRooms);
-
+    
         if (!auth.uid) return <Redirect to="/login" />
 
         return (

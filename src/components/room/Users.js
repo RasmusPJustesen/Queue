@@ -1,15 +1,13 @@
 import React from 'react'
 
 const Users = ({ user }) => {
-    console.log(user);
 
     const htmlList = user.length ? (
     user.map((user, index) => {
         return (
             <li key={index}>
                 <div>
-                    <img src={user.image} alt=""/>
-                    <p>{user.name}</p>
+                    <p>{user.firstName}</p>
                 </div>
             </li>  
         )
