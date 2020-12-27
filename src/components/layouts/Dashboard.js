@@ -7,8 +7,7 @@ import { compose } from 'redux'
 
 class Dashboard extends Component {
     render() {
-        const {  rooms } = this.props;
-        const { auth } = this.props;
+        const {  rooms, auth, profile } = this.props;
 
         if (!auth.uid) return <Redirect to="/login" />
 
@@ -22,7 +21,7 @@ class Dashboard extends Component {
                     </span>   
                 </div>
                     <div className="col s12 row">
-                    <AllRooms rooms={rooms} auth={auth} />
+                    <AllRooms rooms={rooms} auth={auth} profile={profile} />
                 </div>
                 <div className="col s12 row">
                     <hr/>
@@ -35,11 +34,12 @@ class Dashboard extends Component {
 
 const mapStateToProps = (state) => {
 
-  
-  const queue = state.firestore.ordered.Queues
+    const queues = state.firestore.ordered.Queues;
+
     return {
         auth: state.firebase.auth,
-        rooms: queue
+        rooms: queues,
+        profile: state.firebase.profile
     }
 }
 

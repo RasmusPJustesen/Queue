@@ -210,7 +210,18 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 }
 
 .Songs {
-  height: 50%;
+  position: relative;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.scrollable {
+  max-height: calc(300px - 50px);
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
 }
 
 .Songs img {
@@ -358,6 +369,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   grid-template-columns: repeat(5, calc(20% - 10px));
   grid-template-rows: auto;
   column-gap: 10px;
+  row-gap: 10px;
 }
 
 .SearchSongs .card {
@@ -379,6 +391,14 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 
 .SearchSongs .card-action p {
   margin: 0;
+}
+
+.SearchSongs .songs {
+  box-sizing: border-box;
+}
+
+.SearchSongs .songs:active {
+  border: 2px solid blue;
 }
 
 .user .col {

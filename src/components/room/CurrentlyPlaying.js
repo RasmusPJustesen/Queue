@@ -14,6 +14,6 @@ const CurrentlyPlaying = () => {
             </div>
         </div>
     ) 
-}
+} 
 
 export default CurrentlyPlaying

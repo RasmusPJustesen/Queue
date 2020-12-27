@@ -12,7 +12,7 @@ import { compose } from 'redux'
 
 class Room extends Component {
     state = {
-        showPopUp: false 
+        showPopUp: false
     }
 
     changePopUp = () => {
@@ -20,8 +20,7 @@ class Room extends Component {
     }
 
     render() {
-        const { auth } = this.props;
-        const { queue } = this.props
+        const { auth, queue } = this.props;
       
         if (!auth.uid) return <Redirect to="/login" />
 
@@ -29,7 +28,7 @@ class Room extends Component {
         let popup;
 
         if (showPopUp) {
-            popup = <Popup changePopUp={this.changePopUp} />;
+            popup = <Popup queue={queue} profile={this.props.location.state.profile} roomId={this.props.match.params.id} changePopUp={this.changePopUp} />;
         }
 
         if(queue) {
@@ -40,10 +39,10 @@ class Room extends Component {
                     <div className="row mt-3 mb-0">
                         <div className="col s12 m9">
                             <CurrentlyPlaying />
-                            <Queue queue={queue.queues.song} />
+                            <Queue queue={queue.songs} />
                         </div>
                         <div className="col s12 m3">
-                            <Songs  changePopUp={this.changePopUp} />
+                            <Songs songs={queue.songs} changePopUp={this.changePopUp} />
                             <Users user={queue.users.user} />
                         </div>
                     </div>
@@ -52,8 +51,7 @@ class Room extends Component {
                 <Player />
             </div>
           )
-        }
-        else {
+        } else {
             return (
                 <div className="container center"><p>Loadin project...</p></div>
             )
@@ -68,7 +66,8 @@ const mapStateToProps = (state, ownProps) => {
 
     return {
         auth: state.firebase.auth,
-        queue: queue
+        queue: queue,
+        Profile: state.firebase.profile
     }
 }
 

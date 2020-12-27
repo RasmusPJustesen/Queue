@@ -1,128 +1,115 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { createProject } from '../../store/actions/projectActions'
-
+import React, { Component } from 'react'
+import yt_api_key from 'config/ytConfig'
+import axios from 'axios'
+import { addSongToRoom } from '../../store/actions/addSongAction'
+import { connect } from 'react-redux'
 
 class SearchSongs extends Component {
     state = {
-        title: 'LOL',
-        author: 'Take Over',
-        image: '/images/takingover.jpg'
+        text: '',
+        searchResults: {
+            items: []
+        },
+        songs: {},
+        itemFocus: false
+    }
+
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.id]: e.target.value
+        }) 
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        // console.log(this.state);
-        this.props.createProject(this.state);
+        this.setState({searchResults: {items: []}})
+        axios.get(`https://www.googleapis.com/youtube/v3/search?maxResults=10&relevanceLanguage=en&regionCode=AU&topicId=/m/04rlf&part=snippet&q=${this.state.text}&key=${yt_api_key}`)
+        .then((result) => {
+            result.data.items.map((item) => {
+            //_.map(result.data.items, (item) => {
+                //save useful data (item.snippet.title, item.snippet.thumbnails.medium.url, item.id.videoId) to state "searchResults: items"
+                
+                if(item.id.videoId !== undefined) {
+                    
+                    item.variablesId = item.id.videoId;
+                    item.variablesTitle = item.snippet.title;
+                    item.variablesThumbnail = item.snippet.thumbnails.medium.url;
+                        
+                    //console.log(item);
+
+                    return this.setState({
+                        searchResults: {
+                            items: [
+                                ...this.state.searchResults.items,
+                                item
+                            ]
+                        }
+                    })
+                }
+            })
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+    }
+
+    componentDidMount() {
+        this.setState({
+            songs: this.props.songs
+        })
+    } 
+
+    addSongToState = (song) => {
+        this.setState({
+            songs: {
+                ...this.state.songs,
+                [song.id.videoId]: {
+                    roomId: this.props.roomId,
+                    song: song,
+                    addedBy: this.props.profile.initials
+                }
+            }
+        })
+    }
+
+    addSongToRoom = () => {
+        this.props.addSongToRoom(this.state.songs)
     }
 
     render() {
+
+        let addBtn = this.state.searchResults.items.length > 0 ? <button className="btn deep-orange accent-2" onClick={this.addSongToRoom}>Tilføj</button> : null;
+
         return (
             <div className="SearchSongs">
-                <div>
-                    <input type="text" className="mr-3 white-text" placeholder="Skriv sang titel her" />
-                    <button className="btn" onClick={this.handleSubmit}><i className="fas fa-search"></i> Søg</button>
-                </div>
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" id="text" className="mr-3" onChange={this.handleChange} placeholder="Skriv sang titel her" />
+                    <button className="btn"><i className="fas fa-search"></i>Søg</button>
+                </form>
                 <div className="song-results mt-1">
-                    <div className="card blue-grey darken-1">
-                        <div className="card-content">
-                            <img src="/images/awaken.jpg" alt=""/>
-                        </div>
-                        <div className="card-action">
-                            <p className="queue-song-title"><b>Awaken</b></p>
-                            <p className="queue-song-author">LoL</p>
-                        </div>
-                    </div>
-                    <div className="card blue-grey darken-1">
-                        <div className="card-content">
-                            <img src="/images/baddest.jpg" alt=""/>
-                        </div>
-                        <div className="card-action">
-                            <p className="queue-song-title"><b>Baddest</b></p>
-                            <p className="queue-song-author">LoL</p>
-                        </div>
-                    </div>
-                    <div className="card blue-grey darken-1">
-                        <div className="card-content">
-                            <img src="/images/get_jinxed.jpg" alt=""/>
-                        </div>
-                        <div className="card-action">
-                            <p className="queue-song-title"><b>Get Jinxed</b></p>
-                            <p className="queue-song-author">LoL</p>
-                        </div>
-                    </div>
-                    <div className="card blue-grey darken-1">
-                        <div className="card-content">
-                            <img src="/images/giants.png" alt=""/>
-                        </div>
-                        <div className="card-action">
-                            <p className="queue-song-title"><b>Giants</b></p>
-                            <p className="queue-song-author">LoL</p>
-                        </div>
-                    </div>
-                    <div className="card blue-grey darken-1">
-                        <div className="card-content">
-                            <img src="/images/legends_never_die.jpg" alt=""/>
-                        </div>
-                        <div className="card-action">
-                            <p className="queue-song-title truncate"><b>Legends Never Die</b></p>
-                            <p className="queue-song-author">LoL</p>
-                        </div>
-                    </div>
-                    <div className="card blue-grey darken-1">
-                        <div className="card-content">
-                            <img src="/images/phoenix.jpg" alt=""/>
-                        </div>
-                        <div className="card-action">
-                            <p className="queue-song-title"><b>Phoenix</b></p>
-                            <p className="queue-song-author">LoL</p>
-                        </div>
-                    </div>
-                    <div className="card blue-grey darken-1">
-                        <div className="card-content">
-                            <img src="/images/pop_stars.jpg" alt=""/>
-                        </div>
-                        <div className="card-action">
-                            <p className="queue-song-title"><b>Pop stars</b></p>
-                            <p className="queue-song-author">LoL</p>
-                        </div>
-                    </div>
-                    <div className="card blue-grey darken-1">
-                        <div className="card-content">
-                            <img src="/images/rise.jpg" alt=""/>
-                        </div>
-                        <div className="card-action">
-                            <p className="queue-song-title"><b>Rise</b></p>
-                            <p className="queue-song-author">LoL</p>
-                        </div>
-                    </div>
-                    <div className="card blue-grey darken-1">
-                        <div className="card-content">
-                            <img src="/images/warriors.jpg" alt=""/>
-                        </div>
-                        <div className="card-action">
-                            <p className="queue-song-title"><b>Warriors</b></p>
-                            <p className="queue-song-author">LoL</p>
-                        </div>
-                    </div>
-                    <div className="card blue-grey darken-1">
-                        <div className="card-content">
-                            <img src="/images/worlds_collide.jpg" alt=""/>
-                        </div>
-                        <div className="card-action">
-                            <p className="queue-song-title"><b>Worlds colide</b></p>
-                            <p className="queue-song-author">LoL</p>
-                        </div>
-                    </div>
+                    {this.state.searchResults.items && this.state.searchResults.items.map(item => {
+                        return (
+                            <div className="card blue-grey darken-1 songs" onClick={() => this.addSongToState(item)}>
+                                <div className="card-content">
+                                    <img src={item.variablesThumbnail} alt="" />
+                                </div>
+                                <div className="card-action">
+                                    <p className="white-text truncate">{item.variablesTitle}</p>
+                                </div>
+                            </div>             
+                        )
+                    })}
                 </div>
+                {addBtn}
             </div>
         )
     }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        createProject: (queue) => dispatch(createProject(queue))
+        addSongToRoom: (roomId ,song, author) => dispatch(addSongToRoom(roomId ,song, author))
     }
 }
 

@@ -2,25 +2,32 @@ import React from 'react';
 
 const Queue = ({queue}) => {
   
-    console.log(queue);
+    //console.log(queue);
+    let count = 0;
 
     const htmlList = queue.length ? (
         queue.map((song, index) => {
-            return (
-            <div className="col m2 card blue-grey darken-1" key={index}>
-                <div className="card-content">
-                    <img src={song.image} alt=""/>
-                </div>
-                <div className="card-action">
-                    <p className="queue-song-title"><b>{song.title}</b></p>
-                    <p className="queue-song-author">{song.author}</p>
-                </div>
-            </div>
-            )
+            if(count < 5) {
+                count++;
+                return (
+                    <div className="col m2 card blue-grey darken-1" key={index}>
+                        <div className="card-content">
+                            <img src={song.image} alt=""/>
+                        </div>
+                        <div className="card-action">
+                            <p className="queue-song-title"><b>{song.title}</b></p>
+                            <p className="queue-song-author">{song.author}</p>
+                        </div>
+                    </div>
+                )
+            } else {
+                return null
+            }
+            
         })
     ) : (
         <div className="center">no posts yet</div>
-    );
+    ); 
 
     return (
         <div className="Queue">

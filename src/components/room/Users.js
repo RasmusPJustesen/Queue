@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Users = ({ user }) => {
-    console.log(user);
 
     const htmlList = user.length ? (
     user.map((user, index) => {

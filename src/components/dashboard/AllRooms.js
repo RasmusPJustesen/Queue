@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import moment from 'moment'
 
-const AllRooms = ({ rooms, auth }) => {
+const AllRooms = ({ rooms, auth, profile }) => {
  
     return (
         <div className="all-rooms">
@@ -10,7 +10,10 @@ const AllRooms = ({ rooms, auth }) => {
                 if(auth.uid === room.authorid){
                     return (
                         <div className="singleroom card deep-orange accent-2 ml-4" key={room.id}>
-                            <NavLink to={'/queue/' + room.id} className="white-text">
+                            <NavLink to={{
+                                    pathname: '/queue/' + room.id,
+                                    state: {profile: profile}
+                                }} className="white-text">
                                 <div className="card-content row">
                                     <div className="top col s12">
                                         <i className="fas fa-star left"></i>
