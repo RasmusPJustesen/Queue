@@ -19,6 +19,9 @@ class Dashboard extends Component {
               if(room.authorid === auth.uid) {
                 return currentRooms.push(room)
               } 
+        else {
+          return null
+        }
             })
             
             rooms.forEach(room => {

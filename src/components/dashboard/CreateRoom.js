@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import InviteUsers from '../utility/InviteUsers'
-import { NavLink } from 'react-router-dom'
 import { createProject } from '../../store/actions/roomActions'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
