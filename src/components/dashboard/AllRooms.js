@@ -7,6 +7,7 @@ const AllRooms = ({ rooms, auth }) => {
     return (
         <div className="all-rooms">
             {rooms && rooms.map(room => {
+                
                 if(auth.uid === room.authorid){
                     return (
                         <div className="singleroom card deep-orange accent-2 ml-4" key={room.id}>
@@ -23,11 +24,11 @@ const AllRooms = ({ rooms, auth }) => {
                                     <div className="bottom col s12 mt-4 row">
                                         <div className="infomation col s6">
                                             <p className="small-text">Users</p>
-                                            <p className="big"></p>
+                                            <p className="big">{room.users.user.length}</p>
                                         </div>
                                         <div className="infomation col s6">
                                             <p className="small-text">Songs</p>
-                                            <p className="big">58</p>
+                                            <p className="big">{room.queues.song.length}</p>
                                         </div>
                                     </div>
                                 </div>
