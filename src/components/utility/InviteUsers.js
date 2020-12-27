@@ -2,7 +2,6 @@ import React from 'react'
 
 const InviteUsers = (props) => {
 
-    const { users } = props;
     const { filteredUsers } = props;
   
 
@@ -25,7 +24,6 @@ const InviteUsers = (props) => {
        
 
     console.log(props);
-    let currentUsers = users;
     const handleClick = (user) => {
         console.log(user);
         props.inviteUser(user);
