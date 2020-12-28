@@ -4,7 +4,6 @@ import { createProject } from '../../store/actions/roomActions'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
-import { Redirect } from 'react-router-dom'
 
 class CreateRoom extends Component {
 
@@ -75,9 +74,10 @@ class CreateRoom extends Component {
     search = () => {
         const { users} = this.props;
         let currentUsers = users.filter(user => {
-            
             if (user.id !== this.props.location.auth.uid) {
                 return user.firstName.indexOf(this.state.filter) !== -1;
+            } else {
+                return null
             }
         });
 

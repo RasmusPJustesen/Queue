@@ -34,7 +34,7 @@ class Room extends Component {
         }
 
         if (queue != null) {
-            if(queue.authorid == auth.uid) {
+            if(queue.authorid === auth.uid) {
                 player = <Player />;
             }
         }

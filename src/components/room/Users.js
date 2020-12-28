@@ -7,7 +7,7 @@ const Users = ({ user, auth, room }) => {
     const htmlList = user.length ? (
     user.map((user, index) => {
 
-        if(user.id == auth.uid && user.id == room.authorid) {
+        if(user.id === auth.uid && user.id === room.authorid) {
             return (
                 <li key={index}>
                     <div>
@@ -15,7 +15,7 @@ const Users = ({ user, auth, room }) => {
                     </div>
                 </li>  
             )
-        } else if (user.id == auth.uid) {
+        } else if (user.id === auth.uid) {
             return (
                 <li key={index}>
                     <div>
@@ -23,7 +23,7 @@ const Users = ({ user, auth, room }) => {
                     </div>
                 </li>  
             )
-        } else if (user.id == room.authorid) {
+        } else if (user.id === room.authorid) {
             return (
                 <li key={index}>
                     <div>

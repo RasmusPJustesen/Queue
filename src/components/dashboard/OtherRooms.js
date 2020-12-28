@@ -45,6 +45,8 @@ const OtherRooms = ({ rooms, auth }) => {
                                 }
                             })
                         )
+                    } else {
+                        return null
                     }
                 })}
             </div>
