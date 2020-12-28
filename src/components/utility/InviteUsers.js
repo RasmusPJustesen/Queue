@@ -8,24 +8,18 @@ const InviteUsers = (props) => {
     const htmlList = filteredUsers.length ? (
         filteredUsers.map((user, index) => {
             return (
-                <div className="col m3 card blue-grey darken-1" key={user.id} onClick={() => handleClick(user)}>
-                <div className="card-content">
-                  
+                <div className="card blue-grey darken-1" key={user.id} style={{cursor: 'pointer'}} onClick={() => handleClick(user)}>
+                    <div className="card-content pt-4 pb-4 pl-2 pr-2">
+                        <p className="user-song-author center">{user.firstName}<br />{user.lastName}</p>
+                    </div>
                 </div>
-                <div className="card-action">
-                    <p className="user-song-author">{user.firstName} {user.lastName}</p>
-                </div>
-            </div>
             )
         })
-        ) : (
-            <div className="center">no posts yet...</div>
-        );
-       
+    ) : (
+        <p className="left">Ingen personer blev fundet.</p>
+    );
 
-    console.log(props);
     const handleClick = (user) => {
-        console.log(user);
         props.inviteUser(user);
     }
 
@@ -38,19 +32,18 @@ const InviteUsers = (props) => {
        props.search(); 
     }
 
-    
-    
- 
     return (
-        <div className="user input-field col s12">
-            <input id="email" type="text" className="validate" onChange={handleChange}/>
-            <label for="email">Email:</label>
-            <button onClick={searchButton} className="btn deep-orange accent-2">Søg</button>
-            <div className="row mt-3">
-              
-            {htmlList}
-
-           </div>
+        <div>
+            <hr className="col s12" />
+            <h5 className="col s12">Inviter personer til rummet</h5>
+            <div className="user input-field col s6">
+                <input id="email" type="text" className="validate" onChange={handleChange}/>
+                <label for="email">Indtast deres fornavn her:</label>
+                <button onClick={searchButton} className="btn deep-orange accent-2">Søg</button>
+            </div>
+            <div className="all-users col s12 mt-3">
+                {htmlList}
+            </div>
         </div>
     ) 
 

@@ -48,6 +48,15 @@ code {
   display: flex;
 }
 
+.brand-logo {
+  height: calc(64px - 10px);
+  margin: 5px 0;
+}
+
+.brand-logo img {
+  height: 100% !important;
+}
+
 .justify-content-between {
   justify-content: space-between;
 }
@@ -94,6 +103,20 @@ code {
 .Header {
   position: relative;
   z-index: 200;
+}
+
+.Header-login {
+  width: 100vw;
+  height: 200px;
+}
+
+.Header-login .logo {
+  position: absolute;
+  top: 100px;
+  left: calc(50% - 100px);
+  width: 200px;
+  border-radius: 40px;
+  box-shadow: 0 10px 10px #333333;
 }
 
 .Queue {
@@ -388,6 +411,18 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 
 .user .user-song-author {
   font-size: 0.8em;
+} 
+
+.all-users {
+  display: grid;
+  grid-template-columns: repeat(5, calc(20% - 20px));
+  grid-template-rows: auto;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+.all-users .card:active {
+  background-color: #FF6E40 !important;
 }
 
 .Profile .profile-image {
