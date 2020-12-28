@@ -27,15 +27,22 @@ class Room extends Component {
 
         const showPopUp = this.state.showPopUp;
         let popup;
+        let player;
 
         if (showPopUp) {
             popup = <Popup changePopUp={this.changePopUp} />;
         }
 
+        if (queue != null) {
+            if(queue.authorid == auth.uid) {
+                player = <Player />;
+            }
+        }
+
         if(queue) {
             return (
                 <div className="Room">
-                <NavLink to="/dashboard" className="white-text mt-5 room-back-arrow"><i className="fas fa-arrow-left mr-2"></i>afslut rum</NavLink>
+                <NavLink to="/" className="white-text mt-5 room-back-arrow"><i className="fas fa-arrow-left mr-2"></i>afslut rum</NavLink>
                 <div className="container">
                     <div className="row mt-3 mb-0">
                         <div className="col s12 m9">
@@ -44,18 +51,18 @@ class Room extends Component {
                         </div>
                         <div className="col s12 m3">
                             <Songs  changePopUp={this.changePopUp} />
-                            <Users user={queue.users.user} />
+                            <Users auth={auth} room={queue} user={queue.users.user} />
                         </div>
                     </div>
                 </div>
                 {popup}
-                <Player />
+                {player}
             </div>
           )
         }
         else {
             return (
-                <div className="container center"><p>Loadin project...</p></div>
+                <div className="container center"><p>Loading project...</p></div>
             )
         }  
     }
