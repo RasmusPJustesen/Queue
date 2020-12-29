@@ -19,8 +19,8 @@ class SearchSongs extends Component {
     render() {
         return (
             <div className="SearchSongs">
-                <div>
-                    <input type="text" className="mr-3 white-text" placeholder="Skriv sang titel her" />
+                <div className="searchsongs-input">
+                    <input type="text" className="mr-3" placeholder="Skriv sang titel her" />
                     <button className="btn" onClick={this.handleSubmit}><i className="fas fa-search"></i> Søg</button>
                 </div>
                 <div className="song-results mt-1">

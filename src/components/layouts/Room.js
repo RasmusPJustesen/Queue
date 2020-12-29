@@ -47,7 +47,9 @@ class Room extends Component {
                     <div className="row mt-3 mb-0">
                         <div className="col s12 m9">
                             <CurrentlyPlaying />
-                            <Queue queue={queue.queues.song} />
+                            <div className="sm-hide">
+                                <Queue queue={queue.queues.song} />
+                            </div>
                         </div>
                         <div className="col s12 m3">
                             <Songs  changePopUp={this.changePopUp} />

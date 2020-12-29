@@ -6,7 +6,7 @@ import { signOut } from '../../store/actions/authActions'
 
 const Header = (props) => {
     const { auth, profile } = props;
-    const profilePage = auth.uid ? <Link to="/profile" className="btn btn-floating deep-orange accent-2 right mt-3">{profile.initials}</Link> : null;
+    const profilePage = auth.uid ? <Link to="/profile" className="btn btn-floating deep-orange accent-2 right mt-3 profile-sm">{profile.initials}</Link> : null;
 
     /* if(window.location.href.indexOf("/login") || window.location.href.indexOf("/register")) {
         return (

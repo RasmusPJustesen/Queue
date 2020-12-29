@@ -28,20 +28,20 @@ class SignIn extends Component {
         
         return (
             <div className="container login">
-                <form className="row" onSubmit={this.handleSubmit}>
-                    <div className="input-field col s12">
+                <form onSubmit={this.handleSubmit}>
+                    <div className="input-field">
                         <input id="email" type="email" className="validate" onChange={this.handleChange} />
                         <label htmlFor="email">Email:</label>
                     </div>
 
-                    <div className="input-field col s12">
+                    <div className="input-field">
                         <input id="password" type="password" className="validate" onChange={this.handleChange} />
                         <label htmlFor="password">Kodeord:</label>
                     </div>
                     <div className="white-text center">
                         { authError ? <p>{authError}</p> : null }
                     </div>
-                    <div className="col s12">
+                    <div className="">
                         <label>
                             <input type="checkbox" />
                             <span className="white-text">Husk mig</span>
@@ -57,11 +57,13 @@ class SignIn extends Component {
                     </p>
 
                     <p className="center-align some mt-5">Eller login med</p>
-                    <div className="image col s2 offset-s4">
-                        <img style={{width: "85%"}} className="responsive-img" src="icons/facebook_icon.png" alt=""/>
-                    </div>
-                    <div className="image col s2">
-                        <img className="responsive-img" src="icons/google_icon.png" alt=""/>
+                    <div className="row">
+                        <div className="image col s3 offset-s3">
+                            <img className="responsive-img" src="icons/facebook_icon.png" alt=""/>
+                        </div>
+                        <div className="image col s3">
+                            <img className="responsive-img" src="icons/google_icon.png" alt=""/>
+                        </div>
                     </div>
                 </form>
             </div>

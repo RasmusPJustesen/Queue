@@ -14,6 +14,7 @@ body {
 
 .App {
   min-height: 100vh;
+  overflow: hidden;
 }
 
 code {
@@ -163,7 +164,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 }
 
 .login {
-  width: 600px;
+  /*width: 600px;*/
   margin-top: 180px;
   color: white !important;
 }
@@ -177,6 +178,10 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   font-size:60px;
 }
 
+.login form .image img {
+  width: 60px;
+}
+
 .dashboard span {
   font-size: 38px;
 }
@@ -187,6 +192,8 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   grid-template-rows: auto;
   column-gap: 20px;
 }
+
+
 
 .singleroom {
   box-shadow: 0px 13px 26px #00000080;
@@ -496,4 +503,128 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 
 .Profile #save-btn {
   display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .brand-logo {
+    height: calc(58px - 10px);
+  }
+
+  .all-rooms {
+    grid-template-columns: repeat(1, 100%);
+    column-gap: 0;
+    row-gap: 10px;
+  }
+
+  .all-users {
+    grid-template-columns: repeat(2, calc(50% - 10px));
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+
+  .all-users .card {
+    margin: 0;
+  }
+
+  .room-back-arrow {
+    left: 10px;
+    top: -30px;
+  }
+
+  .CurrentlyPlaying {
+    margin-bottom: 30px;
+  }
+
+  .Users {
+    margin-bottom: 80px;
+  }
+
+  .sm-hide {
+    display: none;
+  }
+
+  .Player {
+    padding: 0 !important; 
+    height: 60px;
+  }
+
+  .Player img {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    width: auto;
+  }
+
+  .player-btns>div {
+    position: absolute;
+    top: 30%; right: 20px;
+  }
+
+  .player-btns div div i {
+    font-size: 1.4em;
+    margin-right: .25rem !important;
+  }
+
+  .player-img-txt img {
+    margin: 0 !important;
+    border-radius: 0;
+  }
+
+  .player-img-txt h6 {
+    position: absolute;
+    top: 24%;
+    left: 18%;
+  }
+
+  .player-img-txt p {
+    position: absolute;
+    top: 48%;
+    left: 18.5%;
+  }
+
+  .profile-sm {
+    margin-top: 0.6rem !important;
+  }
+
+  .Popup {
+    position: fixed;
+  }
+
+  .Popup .popup-box {
+    height: 75%;
+    width: 90%;
+  }
+
+  .searchsongs-input input {
+    width: 100% !important;
+  }
+
+  .SearchSongs .song-results {
+    margin-top: .75rem !important;
+    grid-template-columns: repeat(2, calc(50% - 10px));
+  }
+
+  .Profile .profile-image {
+    display: none;
+  }
+
+  .Profile .profile-settings {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    padding: 0 20% 0 10%;
+    height: auto;
+  }
+
+  .Profile .profile-info {
+    height: auto;
+  }
+
+  .Profile .profile-info .profile-btns {
+    float: none !important;
+  }
+
+  #edit-btn {
+    margin-bottom: 1rem !important;
+  }
 }
