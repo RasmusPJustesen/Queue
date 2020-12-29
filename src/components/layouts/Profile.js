@@ -41,7 +41,7 @@ class Profile extends Component {
         return(
             <div className="Profile container">
                 <div className="row">
-                    <div className="col m3 profile-left">
+                    <div className="col s12 m3 profile-left">
                         <div className="profile-image p-5">
                             <i className="fas fa-user-circle"></i>
                         </div>
@@ -59,18 +59,18 @@ class Profile extends Component {
                             </ul>
                         </div>
                     </div>
-                    <div className="col m9 profile-right">
+                    <div className="col s12 m9 profile-right">
                         <div className="profile-info">
                             <div className="row">
-                                <div className="col m8 mt-5">
+                                <div className="col s12 m8 mt-5">
                                     <input type="text" name="fullName" className="browser-default input-fullName" id="input-fullName" placeholder={fullName} disabled />
                                     <h5 className="mb-0">Email</h5>
                                     <input type="email" name="email" className="input-email mt-0" placeholder={auth.email} title="Det er ikke muligt at ændre email på nuværende tidspunkt" disabled />
                                     <h5 className="mb-0">Kodeord</h5>
                                     <input type="password" name="password" className="input-password mt-0" placeholder="********" title="Kontakt os for at ændre kodeord" disabled />
                                 </div>
-                                <div className="col m4 mt-5">
-                                    <div className="right d-flex flex-column">
+                                <div className="col s12 m4 mt-5">
+                                    <div className="right d-flex flex-column profile-btns">
                                         <button onClick={edit} id="edit-btn" className="btn deep-orange accent-2 mb-2">Rediger profil</button>
                                         <button onClick={edit} id="save-btn" className="btn deep-orange accent-2 mb-2">Gem</button>
                                         <button onClick={this.props.signOut} className="btn red">Logout</button>
@@ -78,10 +78,6 @@ class Profile extends Component {
                                     
                                 </div>
                             </div>
-                        </div>
-                        <div className="profile-apps">
-                            <hr className="mb-4"/>
-                            <div className="btn green"><i className="fab fa-spotify mr-2"></i>Spotify</div>
                         </div>
                     </div>
                 </div>

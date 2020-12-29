@@ -13,7 +13,7 @@ const MyRooms = ({ rooms, auth }) => {
                     
                     if(auth.uid === room.authorid){
                         return (
-                            <div className="singleroom card deep-orange accent-2 ml-4" key={room.id}>
+                            <div className="singleroom card deep-orange accent-2" key={room.id}>
                                 <NavLink to={'/queue/' + room.id} className="white-text">
                                     <div className="card-content row">
                                         {/* <div className="top col s12">

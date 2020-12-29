@@ -96,7 +96,7 @@ class CreateRoom extends Component {
         return (
             <div className="container createroom mt-5">
                 <div className="row">
-                    <div className="col s6 mt-5">
+                    <div className="col s12 m6 mt-5">
                         <div className="input-field col s12">
                             <input id="title" type="text" className="validate" onChange={this.handleChange} />
                             <label for="title">Indtast rum navn her:</label>

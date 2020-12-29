@@ -55,7 +55,7 @@ class SignUp extends Component {
                     </div> */}
 
                     <p className="center-align">
-                        <button className="btn waves-effect waves-light btn-large deep-orange accent-2">Opret</button>
+                        <button className="btn waves-effect waves-light deep-orange accent-2">Opret</button>
                     </p>
                     <div className="center white-text">
                         { authError ? <p>{authError}</p> : null }

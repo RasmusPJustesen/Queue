@@ -36,7 +36,7 @@ const InviteUsers = (props) => {
         <div>
             <hr className="col s12" />
             <h5 className="col s12">Inviter personer til rummet</h5>
-            <div className="user input-field col s6">
+            <div className="user input-field col s12 m6">
                 <input id="email" type="text" className="validate" onChange={handleChange}/>
                 <label for="email">Indtast deres fornavn her:</label>
                 <button onClick={searchButton} className="btn deep-orange accent-2">Søg</button>
