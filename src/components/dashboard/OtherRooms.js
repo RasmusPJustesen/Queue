@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import moment from 'moment'
 
 const OtherRooms = ({ rooms, auth }) => {
-
+    console.log(rooms);
     if (rooms.length > 0) {
         return (
             <div className="all-rooms">
@@ -32,7 +32,7 @@ const OtherRooms = ({ rooms, auth }) => {
                                                         </div>
                                                         <div className="infomation col s6">
                                                             <p className="small-text">Songs</p>
-                                                            <p className="big">{room.queues.song.length}</p>
+                                                            <p className="big">  </p>
                                                         </div>
                                                     </div>
                                                 </div>

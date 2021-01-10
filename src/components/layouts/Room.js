@@ -21,8 +21,10 @@ class Room extends Component {
 
     render() {
         const { auth } = this.props;
-        const { queue } = this.props
-      
+        const { queue } = this.props;
+
+       
+       
         if (!auth.uid) return <Redirect to="/login" />
 
         const showPopUp = this.state.showPopUp;
@@ -30,7 +32,7 @@ class Room extends Component {
         let player;
 
         if (showPopUp) {
-            popup = <Popup changePopUp={this.changePopUp} />;
+            popup = <Popup  queue={queue} id={this.props.id} changePopUp={this.changePopUp} />;
         }
 
         if (queue != null) {
@@ -49,7 +51,7 @@ class Room extends Component {
                             <CurrentlyPlaying />
                             <div className="sm-hide">
                                 <Queue queue={queue.queues.song} />
-                            </div>
+                             </div>
                         </div>
                         <div className="col s12 m3">
                             <Songs  changePopUp={this.changePopUp} />
@@ -76,6 +78,7 @@ const mapStateToProps = (state, ownProps) => {
     const queue = queues ? queues[id] : null
 
     return {
+        id: id,
         auth: state.firebase.auth,
         queue: queue
     }

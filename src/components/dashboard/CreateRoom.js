@@ -9,7 +9,6 @@ class CreateRoom extends Component {
 
     state = {
         filter: '',
-        htmlList: <div> no current users </div>,
         filteredUsers: {} ,
         Queues: {
             title: '',
@@ -67,8 +66,6 @@ class CreateRoom extends Component {
                 }
             })
         }
-
-        //console.log(this.state.Queues.users);
     }
     
     search = () => {
@@ -80,18 +77,14 @@ class CreateRoom extends Component {
                 return null
             }
         });
-
         this.setState({
             ...this.state,
             filteredUsers: currentUsers
         })
-
-        //console.log(this.state);
     }
 
 
     render() {  
-        //console.log(this.props);
         const { users } = this.props; 
         return (
             <div className="container createroom mt-5">
