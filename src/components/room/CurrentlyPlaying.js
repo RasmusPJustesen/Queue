@@ -1,6 +1,8 @@
 import React from 'react'
 
-const CurrentlyPlaying = () => {
+const CurrentlyPlaying = (props) => {
+
+    const { queue } = props
     return (
         <div className="CurrentlyPlaying">
             <div className="row center-align">

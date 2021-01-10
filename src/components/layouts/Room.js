@@ -48,13 +48,13 @@ class Room extends Component {
                 <div className="container">
                     <div className="row mt-3 mb-0">
                         <div className="col s12 m9">
-                            <CurrentlyPlaying />
+                            <CurrentlyPlaying queue={queue.queues.song} />
                             <div className="sm-hide">
                                 <Queue queue={queue.queues.song} />
                              </div>
                         </div>
                         <div className="col s12 m3">
-                            <Songs  changePopUp={this.changePopUp} />
+                            <Songs queue={queue.queues.song} changePopUp={this.changePopUp} />
                             <Users auth={auth} room={queue} user={queue.users.user} />
                         </div>
                     </div>

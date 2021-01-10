@@ -1,11 +1,30 @@
 import React from 'react'
 
 const Songs = (props) => {
-
+ 
+  const { queue } = props
 
     const handleClick = () => {
         props.changePopUp();
     }
+
+
+    const htmlList = queue ? (
+        Object.keys(queue).map((item, i, arr) => {
+            console.log(queue[item]);
+            return (
+                <li>
+                <div>
+                    <img src={queue[item].image} alt=""/>
+                    <p className="bold truncate">{queue[item].title}</p>
+                </div>
+            </li>
+            )
+        })
+    ) : (
+        <div className="center">no posts yet</div>
+    );
+
  
     return (
         <div className="Songs">
@@ -15,48 +34,7 @@ const Songs = (props) => {
             </div>
             <div>
                 <ol>
-                <li>
-                    <div>
-                        <img src="/images/rasmus.jpg" alt=""/>
-                        <p className="bold">Gates of Babylon</p>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <img src="/images/nicklas.jpg" alt=""/>
-                        <p>Take Over</p>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <img src="/images/nicklas.jpg" alt=""/>
-                        <p>Strip no More</p>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <img src="/images/rasmus.jpg" alt=""/>
-                        <p>Lomesome Rider</p>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <img src="/images/rasmus.jpg" alt=""/>
-                        <p>For evigt</p>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <img src="/images/nicklas.jpg" alt=""/>
-                        <p>Immortals</p>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <img src="/images/nicklas.jpg" alt=""/>
-                        <p>Lie to Me</p>
-                    </div>
-                </li>
+                    {htmlList}
                 </ol>
             </div>
         </div>
