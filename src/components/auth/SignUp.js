@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { NavLink, Redirect } from 'react-router-dom'
 import { signUp } from '../../store/actions/authActions'
 
 class SignUp extends Component {
@@ -61,6 +61,9 @@ class SignUp extends Component {
                         { authError ? <p>{authError}</p> : null }
                     </div>
                 </form>
+                <p className="center-align">
+                    <NavLink to="/login">Tilbage til login</NavLink>
+                </p>
             </div>
         )
     }

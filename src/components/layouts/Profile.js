@@ -45,7 +45,7 @@ class Profile extends Component {
                         <div className="profile-image p-5">
                             <i className="fas fa-user-circle"></i>
                         </div>
-                        <div className="profile-settings">
+                        {/* <div className="profile-settings">
                             <h4>Indstillinger</h4>
                             <ul>
                                 <li>
@@ -57,7 +57,7 @@ class Profile extends Component {
                                     <span className="settings-darkmode"></span>
                                 </li>
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="col s12 m9 profile-right">
                         <div className="profile-info">
