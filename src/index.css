@@ -132,9 +132,11 @@ code {
   margin: 0;
 }
 
-.Queue .col {
-  padding: 0;
-  margin: 0 10px;
+.Queue .grid {
+  display: grid;
+  grid-template-rows: 1;
+  grid-template-columns: repeat(5, calc(20% - 10px));
+  column-gap: 10px;
 }
 
 .Queue .card {
