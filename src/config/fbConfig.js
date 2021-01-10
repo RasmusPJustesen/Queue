@@ -13,6 +13,8 @@ var config = {
     measurementId: "G-H98SK0GD09"
 };
 
+
+
 // Initialize Firebase
 firebase.initializeApp(config);
 firebase.firestore().settings({ timestampsInSnapshots: true });

@@ -31,7 +31,7 @@ export const signUp = (newUser) => {
 
         firebase.auth().createUserWithEmailAndPassword(
             newUser.email,
-            newUser.password
+            newUser.password        
         ).then(respond => {
             //create new document on collection users and set the id to the new auth-user's uid
             return firestore.collection('Users').doc(respond.user.uid).set({

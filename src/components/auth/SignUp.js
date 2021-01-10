@@ -7,7 +7,7 @@ class SignUp extends Component {
     state = {
         firstName: '',
         lastName: '',
-        email: '',
+        email: '', 
         password: ''
     }
 
