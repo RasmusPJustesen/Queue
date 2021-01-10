@@ -56,7 +56,7 @@ class SignIn extends Component {
                         <NavLink to="/register">Opret</NavLink>
                     </p>
 
-                    <p className="center-align some mt-5">Eller login med</p>
+                    {/* <p className="center-align some mt-5">Eller login med</p>
                     <div className="row">
                         <div className="image col s3 offset-s3">
                             <img className="responsive-img" src="icons/facebook_icon.png" alt=""/>
@@ -64,7 +64,7 @@ class SignIn extends Component {
                         <div className="image col s3">
                             <img className="responsive-img" src="icons/google_icon.png" alt=""/>
                         </div>
-                    </div>
+                    </div> */}
                 </form>
             </div>
         )
