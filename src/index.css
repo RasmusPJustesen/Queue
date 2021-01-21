@@ -30,10 +30,8 @@ code {
 }
 
 .current-song-img {
-  position: relative;
-  width: 15rem;
-  height: auto;
-  z-index: 10;
+ display: block;
+ margin: 0 auto;
 }
 
 .prev-song-img, .next-song-img {

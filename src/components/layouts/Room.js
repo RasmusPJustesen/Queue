@@ -12,13 +12,21 @@ import { compose } from 'redux'
 
 class Room extends Component {
     state = {
-        showPopUp: false 
+        showPopUp: false,
+        videoID: ''
     }
 
     changePopUp = () => {
         this.setState({ showPopUp : !this.state.showPopUp})   
     }
 
+   
+    handleChange = (e) => {
+        this.setState({
+            videoID: e
+        })
+
+    }
     render() {
         const { auth } = this.props;
         const { queue } = this.props;
@@ -37,7 +45,7 @@ class Room extends Component {
 
         if (queue != null) {
             if(queue.authorid === auth.uid) {
-                player = <Player />;
+                player = <Player videoID={this.state.videoID} />;
             }
         }
 
@@ -48,9 +56,9 @@ class Room extends Component {
                 <div className="container">
                     <div className="row mt-3 mb-0">
                         <div className="col s12 m9">
-                            <CurrentlyPlaying queue={queue.queues.song} />
-                            <div className="sm-hide">
-                                <Queue queue={queue.queues.song} />
+                            <CurrentlyPlaying queue={queue.queues.song} videoID={this.state.videoID} />
+                            <div className="sm-hide mt-5">
+                                <Queue className="mt-5" queue={queue.queues.song} handleChange={this.handleChange} />
                              </div>
                         </div>
                         <div className="col s12 m3">

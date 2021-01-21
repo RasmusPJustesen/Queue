@@ -11,7 +11,6 @@ const Songs = (props) => {
 
     const htmlList = queue ? (
         Object.keys(queue).map((item, i, arr) => {
-            console.log(queue[item]);
             return (
                 <li>
                 <div>
