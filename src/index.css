@@ -34,6 +34,10 @@ code {
  margin: 0 auto;
 }
 
+.iframe {
+  display: none;
+}
+
 .prev-song-img, .next-song-img {
   position: absolute;
   width: 10rem;
